@@ -1,0 +1,141 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "123"
+    },
+    {
+      "id": 2,
+      "username": "dobleh",
+      "password": "qwe"
+    },
+    {
+      "id": 3,
+      "username": "jamal",
+      "password": "asd"
+    }
+  ],
+  "studios": [
+    {
+      "id": 1,
+      "nama": "Studio 1",
+      "jumlahKursi": 260
+    },
+    {
+      "id": 2,
+      "nama": "Studio 2",
+      "jumlahKursi": 240
+    },
+    {
+      "id": 3,
+      "nama": "Studio 3",
+      "jumlahKursi": 200
+    }
+  ],
+  "movies": [
+    {
+      "title": "Jumanji 2",
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157380448937451_287x421.jpg",
+      "sinopsis": "Dwayne Johnson, Karen Gillan, Jack Black dan Kevin Hart kembali ke Jumanji,keempatnya harus menyelamatkan salah satu teman mereka. Namun permainan telah berubah. Para pemain kini harus lebih berani melintasi rintangan ekstrem dan kembali dengan selamat dari permainan paling berbahaya di dunia.",
+      "sutradara": "Jake Kasdan",
+      "genre": "Action, Fantasy",
+      "durasi": "123",
+      "produksi": "Columbia Pictures",
+      "jadwal": [12, 14, 16, 18, 20, 22],
+      "trailer": "https://www.youtube.com/watch?v=rBxcF-r9Ibs",
+      "studioId": "1",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "title": "Star Wars: The Rise of Skywalker",
+      "sutradara": "J.J. Abrams",
+      "durasi": 140,
+      "produksi": "Walt Disney Pictures",
+      "sinopsis": "Resistance yang selamat sekali lagi akan menghadapi First Order dalam sebuah saga final yang akan menentukan nasib mereka.",
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157416306567553_287x421.jpg",
+      "genre": "Action, Fantasy",
+      "jadwal": [12, 14, 16],
+      "studioId": 2,
+      "trailer": "https://youtu.be/8Qn_spdM5Zg"
+    },
+    {
+      "id": 3,
+      "title": "Charlie's Angels",
+      "sutradara": "Elizabeth Banks",
+      "durasi": 120,
+      "produksi": "Columbia Pictures",
+      "sinopsis": "Versi terbaru Charlie's Angels akan membawa kita pada petualangan baru yang lebih seru dan lebih segar. Sabina Wilson (Kristen Stewart) dan rekannya, Jane Kano (Ella Balinska), diberi tugas oleh Charlie untuk melindungi Elena Houghlin (Naomi Scott), seorang insinyur muda yang merevolusi industri listrik, namun memiliki potensi untuk menjadi senjata mematikan. Charlie's Angels menjalankan misi dan mempertaruhkan nyawa mereka demi menyelamatkan dunia dan mencegah teroris menyalahgunakan teknologi alat tersebut.",
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157224569350378_287x421.jpg",
+      "genre": "Action",
+      "jadwal": [12, 18, 20],
+      "studioId": 1,
+      "trailer": "https://youtu.be/RSUq4VfWfjE"
+    },
+    {
+      "title": "Bombshell",
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157484899769947_287x421.jpg",
+      "sinopsis": "Sebuah kisah berani dari beberapa perempuan yang pada akhirnya berjuang menjatuhkan sosok besar yang menciptakan mereka. Bombshell diangkat dari kisah nyata tentang skandal terbesar yang terjadi di Fox News dan Fox Television Stations. Skandal yang dilakukan mantan chairman dan CEO mereka Roger Ailes.",
+      "sutradara": "Jay Roach",
+      "genre": "Biography, Drama",
+      "durasi": "123",
+      "produksi": "Lionsgate",
+      "jadwal": [12, 14, 20, 22],
+      "trailer": "https://youtu.be/YXL33tEUA3g",
+      "studioId": "2",
+      "id": 5
+    },
+    {
+      "title": "Frozen 2",
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157250534676979_287x421.jpg",
+      "sinopsis": "Anna, Elsa, Kristoff, Olaf dan Sven pergi meninggalkan Arendelle untuk melakukan perjalanan ke sebuah tempat asing dan penuh keajaiban. Mereka berangkat untuk menemukan asal usul kekuatan Elsa dan juga untuk menyelamatkan kerajaan mereka",
+      "sutradara": "Chris Buck, Jennifer Lee",
+      "genre": "Animation, Adventure, Comedy",
+      "durasi": "103",
+      "produksi": "Walt Disney Pictures",
+      "jadwal": [12, 14, 16],
+      "trailer": "https://youtu.be/bwzLiQZDw2I",
+      "studioId": "2",
+      "id": 6
+    },
+    {
+      "title": "Knives Out",
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157251774892294_287x421.jpg",
+      "sinopsis": "Harlan Thrombey (Christopher Plummer) adalah penulis novel misteri yang kaya raya. Di ulang tahunnya yang ke-85 ia tewas secara misterius. Keluarga Harlan yang datang berkumpul kini menjadi tersangka. Mereka dicurigai oleh Detektif terkenal Benoit Blanc (Daniel Craig) yang datang untuk menyelidiki insiden ini. Untuk memecahkan misteri kematian Harlan, sang detektif mulai berbicara kepada seluruh anggota keluarga dan menemukan siapa dalang pembunuhan sang novelis terkenal itu.",
+      "sutradara": "Rian Johnson",
+      "genre": "Comedy, Crime, Drama",
+      "durasi": "130",
+      "produksi": "Mongrel Media",
+      "jadwal": [12, 14, 18],
+      "trailer": "https://youtu.be/sL-9Khv7wa4",
+      "id": 7
+    },
+    {
+      "title": "Ford v Ferrari",
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/1572858859730_287x421.jpg",
+      "sinopsis": "2 pemenang Academy Award, Matt Damon dan Christian Bale berperan di FORD v FERRARI, berdasarkan kisah nyata yang luar biasa dari Carroll Shelby (Damon), seorang perancang mobil visioner dari Amerika bersama Ken Miles (Bale), seorang pembalap Inggris yang tak kenal takut. Mereka bersama-sama berjuang menghadapi campur tangan perusahaan, hukum fisika, dan masalah pribadi mereka sendiri ketika membangun mobil balap revolusioner bagi Ford Motor Company untuk menantang mobil balap buatan Enzo Ferrari yang mendomniasi 24 Jam Le Mans di Perancis pada tahun 1966.",
+      "sutradara": "James Mangold",
+      "genre": "Action, Biography, Drama",
+      "durasi": "152",
+      "produksi": "20th Century Fox",
+      "jadwal": [12, 16, 18],
+      "trailer": "https://youtu.be/zyYgDtY2AMY",
+      "id": 8
+    },
+    {
+      "title": "Eggnoid",
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157356145959988_287x421.jpg",
+      "sinopsis": "Selama 2 tahun terakhir Ran dan Eggy telah menjadi sepasang sahabat yang tak terpisahkan. Ran yang dulu kesepian dan penuh dengan kesedihan, kini menjadi sosok yang lebih bahagia karena Eggy. Perasaan yang awalnya hanya sebagai sahabat, pelan-pelan berubah menjadi cinta. Sayangnya, Eggy bukan manusia biasa. Melainkan Eggnoid yang dikirim dari masa depan. Sebagai Eggnoid, Eggy memiliki aturan-aturan yang tidak boleh dilanggar. Kini, Eggy terancam dikirim pulang ke masa depan dan berpisah dengan Ran selamanya karena salah satu aturan besar yang tidak boleh ia langgar adalah jatuh cinta dan pacaran dengan Ran.",
+      "sutradara": "Naya Anandita",
+      "genre": "Drama, Sci-Fi",
+      "durasi": "103",
+      "produksi": "Visinema Pictures",
+      "jadwal": [18, 22],
+      "trailer": "https://youtu.be/Y7maBc4tx6g",
+      "id": 9
+    }
+  ],
+  "orders": [],
+  "ordersDetails": []
+}
