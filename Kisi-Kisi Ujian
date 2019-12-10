@@ -1,4 +1,0 @@
-Kisi-Kisi Ujian
-- Tiap user punya role, admin punya role yang beda dengan user. Ada halaman yang hanya bisa diakses user dan jg sebaliknya (pake redirect, data dari redux)
-- Bikin Halaman Register
-- Manage Studio
