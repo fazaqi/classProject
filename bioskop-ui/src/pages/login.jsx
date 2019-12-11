@@ -49,64 +49,6 @@ class Login extends Component {
     }
     return (
       <div>
-        {/* <div className=" mt-3 d-flex justify-content-center">
-          <div
-            style={{ width: "500px", border: "1px solid black" }}
-            className="rounded p-2"
-          >
-            <h1>Login</h1>
-            <div className="p-1" style={{ borderBottom: "1px solid black" }}>
-              <input
-                type="text"
-                className="username"
-                style={{
-                  border: "transparent",
-                  width: "100%",
-                  fontSize: "20px"
-                }}
-                ref="username"
-                placeholder="username bro"
-              />
-            </div>
-            <div className="p-1" style={{ borderBottom: "1px solid black" }}>
-              <input
-                type="password"
-                className="username"
-                style={{
-                  border: "transparent",
-                  width: "100%",
-                  fontSize: "20px"
-                }}
-                ref="password"
-                placeholder="pass bro"
-              />
-            </div>
-            {this.state.error === "" ? null : (
-              <div className="alert alert-danger mt-2">
-                {this.state.error}{" "}
-                <span
-                  onClick={() => this.setState({ error: "" })}
-                  className="float-right font-weight-bold"
-                >
-                  X
-                </span>
-              </div>
-            )}
-            <div className="mt-4">
-              <button className="btn btn-primary" onClick={this.onLoginClick}>
-                Login
-              </button>
-            </div>
-
-            <div className="mt-2">
-              Don't have an Account?<Link to={"/register"}> Register</Link>{" "}
-              Here!
-            </div>
-          </div>
-        </div> */}
-
-        {/* //////////////////////////////////////////////////////////////// */}
-
         <div className="mx-auto mt-5" style={{ width: "50%" }}>
           <div className="text-center">
             <h1>LOGIN</h1>
@@ -120,18 +62,6 @@ class Login extends Component {
               <label>Password</label>
               <input placeholder="Password" type="password" ref="password" />
             </Form.Field>
-
-            {this.state.error === "" ? null : (
-              <div className="alert alert-danger mt-2">
-                {this.state.error}{" "}
-                <span
-                  onClick={() => this.setState({ error: "" })}
-                  className="float-right font-weight-bold"
-                >
-                  X
-                </span>
-              </div>
-            )}
             <Button type="submit" onClick={this.onLoginClick}>
               Login
             </Button>
