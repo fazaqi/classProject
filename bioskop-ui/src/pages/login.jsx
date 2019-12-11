@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import { LoginSuccessAction } from "./../redux/actions";
 import { Loader } from "react-loader-spinner";
 import { Button, Form } from "semantic-ui-react";
+import Swal from "sweetalert2";
 
 class Login extends Component {
   state = {
@@ -19,13 +20,22 @@ class Login extends Component {
     this.setState({ loading: true });
     Axios.get(`${APIURL}users?username=${username}&password=${password}`)
       .then(res => {
+        // console.log(res.data);
         if (res.data.length) {
           localStorage.setItem("dino", res.data[0].id);
           this.props.LoginSuccessAction(res.data[0]);
+          Swal.fire({
+            icon: "success",
+            title: "Login Success!",
+            text: `Welcome, ${username}`
+          });
         } else {
-          this.setState({ error: "salah masukin pass woy" });
+          Swal.fire({
+            icon: "error",
+            title: "Whoops!",
+            text: `Wrong Username/Password`
+          });
         }
-        this.setState({ loading: false });
       })
       .catch(err => {
         console.log(err);
@@ -83,18 +93,9 @@ class Login extends Component {
               </div>
             )}
             <div className="mt-4">
-              {this.state.loading ? (
-                <Loader
-                  type="MutatingDots"
-                  color="#263d52"
-                  height={100}
-                  width={100}
-                />
-              ) : (
-                <button className="btn btn-primary" onClick={this.onLoginClick}>
-                  Login
-                </button>
-              )}
+              <button className="btn btn-primary" onClick={this.onLoginClick}>
+                Login
+              </button>
             </div>
 
             <div className="mt-2">
@@ -131,18 +132,9 @@ class Login extends Component {
                 </span>
               </div>
             )}
-            {this.state.loading ? (
-              <Loader
-                type="MutatingDots"
-                color="#263d52"
-                height={100}
-                width={100}
-              />
-            ) : (
-              <Button type="submit" onClick={this.onLoginClick}>
-                Login
-              </Button>
-            )}
+            <Button type="submit" onClick={this.onLoginClick}>
+              Login
+            </Button>
             <div className="mt-3">
               Don't have an Account?<Link to={"/register"}> Register</Link>{" "}
               Here!
@@ -156,7 +148,7 @@ class Login extends Component {
 
 const MapstateToprops = state => {
   return {
-    AuthLog: state.Auth.login
+    AuthLog: state.AuthLogin.login
   };
 };
 

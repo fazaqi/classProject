@@ -2,14 +2,17 @@ import React, { Component } from "react";
 import Axios from "axios";
 import { APIURL } from "../support/ApiUrl";
 import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 
 class MovieDetail extends Component {
   state = {
     datadetailfilm: {},
-    notlogin: false
+    notlogin: false,
+    buyTicket: false
   };
 
   componentDidMount() {
+    console.log(this.props.match);
     Axios.get(`${APIURL}movies/${this.props.match.params.id}`)
       .then(res => {
         // console.log(res.data);
@@ -20,7 +23,25 @@ class MovieDetail extends Component {
       });
   }
 
+  btnBuy = () => {
+    if (this.props.AuthLog) {
+      this.setState({ buyTicket: true });
+    } else {
+      this.setState({ notlogin: true });
+    }
+  };
+
   render() {
+    if (this.state.notlogin) {
+      return <Redirect to="/login" />;
+    }
+    if (this.state.buyTicket) {
+      return (
+        <Redirect
+          to={{ pathname: "/belitiket", state: this.state.datadetailfilm }}
+        />
+      );
+    }
     return (
       <div>
         <div
@@ -81,6 +102,9 @@ class MovieDetail extends Component {
               <div>
                 <p>{this.state.datadetailfilm.sinopsis}</p>
               </div>
+              <div>
+                <button onClick={this.btnBuy}>BELI</button>
+              </div>
             </div>
           </div>
         </div>
@@ -91,7 +115,7 @@ class MovieDetail extends Component {
 
 const MapstateToprops = state => {
   return {
-    AuthLog: state.Auth.login
+    AuthLog: state.AuthLogin.login
   };
 };
 

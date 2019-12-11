@@ -57,7 +57,7 @@ class App extends Component {
 
 const MapstateToprops = state => {
   return {
-    AuthLog: state.Auth.login
+    AuthLog: state.AuthLogin.login
   };
 };
 
