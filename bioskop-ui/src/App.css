@@ -11,7 +11,9 @@
 } */
 
 .header {
-  background-color: #263d52;
+  /* background-color: #263d52; */
+  background-color: #0b172a;
+  height: 70px;
   /* font-family: "PT Sans", sans-serif; */
 }
 
@@ -42,6 +44,40 @@
 .readmore:hover {
   text-decoration: underline;
   cursor: pointer;
+}
+
+/* Styling Button */
+
+.btn-order {
+  width: 43px;
+  height: 40px;
+  background-color: whitesmoke;
+  color: #5b0008;
+  border: 1px solid #5b0008;
+  transition: 200ms;
+}
+
+.btn-order:focus {
+  outline-color: #263d52;
+}
+
+.btn-order:hover {
+  font-weight: bolder;
+}
+
+.btn-disble {
+  width: 43px;
+  height: 40px;
+  background-color: whitesmoke;
+  color: #5b0008;
+  border: 1px solid #5b0008;
+}
+.btn-pilih {
+  color: whitesmoke;
+  background-color: #5b0008d7;
+  border: 1px solid whitesmoke;
+  width: 43px;
+  height: 40px;
 }
 
 /* ============ NOTFOUND ============ */

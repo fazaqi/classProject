@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import Notfound from "./notfound";
 import Axios from "axios";
 import { APIURL } from "../support/ApiUrl";
+import Numeral from "numeral";
 // import { Button } from "semantic-ui-react";
 
 class BeliTiket extends Component {
@@ -13,7 +14,9 @@ class BeliTiket extends Component {
     booked: [],
     loading: true,
     jam: 12,
-    pilihan: []
+    pilihan: [],
+    harga: 0,
+    jumlahtiket: 0
   };
 
   componentDidMount() {
@@ -110,21 +113,33 @@ class BeliTiket extends Component {
           {val.map((val1, i) => {
             if (val1 === 3) {
               return (
-                <button key={i}>
+                <button
+                  key={i}
+                  disabled
+                  className="rounded btn-disble mr-2 mt-2 bg-danger text-center"
+                >
                   {/* ini seat yang sudah booked*/}
                   {alphabet[index] + (i + 1)}
                 </button>
               );
             } else if (val1 === 2) {
               return (
-                <button key={i}>
+                <button
+                  key={i}
+                  className="rounded btn-order mr-2 mt-2 btn-pilih text-center"
+                  onClick={() => this.onCancelSeatClick(index, i)}
+                >
                   {/* ini seat yang di klik user*/}
                   {alphabet[index] + (i + 1)}
                 </button>
               );
             }
             return (
-              <button key={i}>
+              <button
+                key={i}
+                className="rounded btn-order mr-2 mt-2 text-center"
+                onClick={() => this.onPilihSeatClick(index, i)}
+              >
                 {/* ini seat yang available*/}
                 {alphabet[index] + (i + 1)}
               </button>
@@ -157,6 +172,58 @@ class BeliTiket extends Component {
     });
   };
 
+  renderHargaQty = () => {
+    var qty = this.state.pilihan.length;
+    var harga = qty * 25000;
+    return (
+      <div>
+        {qty} Ticket X {"Rp" + Numeral(25000).format("0.0")} =
+        {"Rp" + Numeral(harga).format("0.0")}
+      </div>
+    );
+  };
+
+  onOrderClick = () => {
+    var userid = this.props.userId;
+    var movieid = this.state.datamovie.id;
+    var pilihan = this.state.pilihan;
+    var jadwal = this.state.jam;
+    var totalharga = this.state.pilihan.length * 25000;
+    var bayar = false;
+    var data = {
+      userid,
+      movieid,
+      totalharga,
+      jadwal,
+      bayar
+    };
+    Axios.post(`${APIURL}orders`, data)
+      .then(res => {
+        var dataOrderDetail = [];
+        pilihan.forEach(val => {
+          dataOrderDetail.push({
+            orderId: res.data.id,
+            seat: val.seat,
+            row: val.row
+          });
+        });
+        var dataOrderDetail2 = [];
+        dataOrderDetail.forEach(val => {
+          dataOrderDetail2.push(Axios.post(`${APIURL}ordersDetails`, val));
+        });
+        Axios.all(dataOrderDetail2)
+          .then(res1 => {
+            console.log(res1);
+          })
+          .catch(err => {
+            console.log(err);
+          });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
   render() {
     if (this.props.location.state && this.props.AuthLog) {
       return (
@@ -168,6 +235,7 @@ class BeliTiket extends Component {
                 <button className="btn btn-primary"> Order </button>
               ) : null}
             </div>
+            {this.state.pilihan.length ? this.renderHargaQty() : null}
           </center>
           <div className="d-flex justify-content-center mt-4">
             <div>{this.state.loading ? null : this.renderSeat()}</div>
@@ -186,3 +254,7 @@ const MapstateToprops = state => {
 };
 
 export default connect(MapstateToprops)(BeliTiket);
+
+///belum ada proteksi ke notfound
+// belum bisa munculin yg booked
+// axios post belum work

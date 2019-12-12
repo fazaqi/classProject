@@ -35,6 +35,7 @@ class MovieDetail extends Component {
     if (this.state.notlogin) {
       return <Redirect to="/login" />;
     }
+
     if (this.state.buyTicket) {
       return (
         <Redirect

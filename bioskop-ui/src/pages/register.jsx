@@ -67,7 +67,7 @@ class Register extends Component {
 
   render() {
     return (
-      <div className="mx-auto mt-5" style={{ width: "50%" }}>
+      <div className="mx-auto mt-5" style={{ width: "30%" }}>
         <div className="text-center">
           <h1>REGISTER</h1>
         </div>

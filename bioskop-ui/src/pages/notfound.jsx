@@ -6,7 +6,7 @@ class Notfound extends React.Component {
   state = {};
   render() {
     return (
-      <div>
+      <div className="mx-auto" style={{ marginTop: "100px", width: "55%" }}>
         <svg
           id="404-Dave"
           xmlns="http://www.w3.org/2000/svg"
@@ -194,7 +194,7 @@ class Notfound extends React.Component {
           {/* </g> */}
         </svg>
         <Link to={"/"}>
-          <Button className="mt-0" color="blue" style={{ marginLeft: "45%" }}>
+          <Button className="mt-0" color="blue" style={{ marginLeft: "41%" }}>
             Go Back Home
           </Button>
         </Link>

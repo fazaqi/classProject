@@ -1,8 +1,10 @@
 Kisi-Kisi Ujian
 - Tiap user punya role, admin punya role yang beda dengan user. Ada halaman yang hanya bisa diakses user dan jg sebaliknya (pake redirect, data dari redux)
-- Bikin Halaman Register
+- Bikin Halaman Register ^
 - Manage Studio
 - History Pembelian
 - Update number Cart setelah book ticket
 - Ganti Password
 - Fitur Search??
+- List film yg sudah di book ( detail : judul film, seat yg di booked, jam tayang, harga total tiket)
+- Tanggal di Halaman Cart ( Pake New Date )

@@ -57,14 +57,7 @@
       "genre": "Action, Fantasy",
       "durasi": "123",
       "produksi": "Columbia Pictures",
-      "jadwal": [
-        12,
-        14,
-        16,
-        18,
-        20,
-        22
-      ],
+      "jadwal": [12, 14, 16, 18, 20, 22],
       "trailer": "https://www.youtube.com/watch?v=rBxcF-r9Ibs",
       "studioId": "1",
       "id": 1
@@ -78,11 +71,7 @@
       "sinopsis": "Resistance yang selamat sekali lagi akan menghadapi First Order dalam sebuah saga final yang akan menentukan nasib mereka.",
       "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157416306567553_287x421.jpg",
       "genre": "Action, Fantasy",
-      "jadwal": [
-        12,
-        14,
-        16
-      ],
+      "jadwal": [12, 14, 16],
       "studioId": 2,
       "trailer": "https://youtu.be/8Qn_spdM5Zg"
     },
@@ -95,11 +84,7 @@
       "sinopsis": "Versi terbaru Charlie's Angels akan membawa kita pada petualangan baru yang lebih seru dan lebih segar. Sabina Wilson (Kristen Stewart) dan rekannya, Jane Kano (Ella Balinska), diberi tugas oleh Charlie untuk melindungi Elena Houghlin (Naomi Scott), seorang insinyur muda yang merevolusi industri listrik, namun memiliki potensi untuk menjadi senjata mematikan. Charlie's Angels menjalankan misi dan mempertaruhkan nyawa mereka demi menyelamatkan dunia dan mencegah teroris menyalahgunakan teknologi alat tersebut.",
       "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157224569350378_287x421.jpg",
       "genre": "Action",
-      "jadwal": [
-        12,
-        18,
-        20
-      ],
+      "jadwal": [12, 18, 20],
       "studioId": 1,
       "trailer": "https://youtu.be/RSUq4VfWfjE"
     },
@@ -111,12 +96,7 @@
       "genre": "Biography, Drama",
       "durasi": "123",
       "produksi": "Lionsgate",
-      "jadwal": [
-        12,
-        14,
-        20,
-        22
-      ],
+      "jadwal": [12, 14, 20, 22],
       "trailer": "https://youtu.be/YXL33tEUA3g",
       "studioId": "2",
       "id": 5
@@ -129,11 +109,7 @@
       "genre": "Animation, Adventure, Comedy",
       "durasi": "103",
       "produksi": "Walt Disney Pictures",
-      "jadwal": [
-        12,
-        14,
-        16
-      ],
+      "jadwal": [12, 14, 16],
       "trailer": "https://youtu.be/bwzLiQZDw2I",
       "studioId": "2",
       "id": 6
@@ -146,12 +122,9 @@
       "genre": "Comedy, Crime, Drama",
       "durasi": "130",
       "produksi": "Mongrel Media",
-      "jadwal": [
-        12,
-        14,
-        18
-      ],
+      "jadwal": [12, 14, 18],
       "trailer": "https://youtu.be/sL-9Khv7wa4",
+      "studioId": "3",
       "id": 7
     },
     {
@@ -162,12 +135,9 @@
       "genre": "Action, Biography, Drama",
       "durasi": "152",
       "produksi": "20th Century Fox",
-      "jadwal": [
-        12,
-        16,
-        18
-      ],
+      "jadwal": [12, 16, 18],
       "trailer": "https://youtu.be/zyYgDtY2AMY",
+      "studioId": "2",
       "id": 8
     },
     {
@@ -178,11 +148,9 @@
       "genre": "Drama, Sci-Fi",
       "durasi": "103",
       "produksi": "Visinema Pictures",
-      "jadwal": [
-        18,
-        22
-      ],
+      "jadwal": [18, 22],
       "trailer": "https://youtu.be/Y7maBc4tx6g",
+      "studioId": "3",
       "id": 9
     }
   ],
@@ -226,28 +194,40 @@
       "seat": 5
     },
     {
-      "id": 2,
+      "id": 3,
       "orderId": 2,
       "row": 2,
       "seat": 6
     },
     {
-      "id": 2,
+      "id": 4,
       "orderId": 2,
       "row": 2,
       "seat": 7
     },
     {
-      "id": 2,
+      "id": 5,
       "orderId": 3,
       "row": 2,
       "seat": 8
     },
     {
-      "id": 2,
+      "id": 6,
       "orderId": 3,
       "row": 2,
       "seat": 9
+    },
+    {
+      "id": 7,
+      "orderId": 3,
+      "row": 2,
+      "seat": 1
+    },
+    {
+      "id": 8,
+      "orderId": 3,
+      "row": 2,
+      "seat": 3
     }
   ]
 }

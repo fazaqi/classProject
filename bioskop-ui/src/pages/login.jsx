@@ -4,7 +4,7 @@ import { Link, Redirect } from "react-router-dom";
 import { APIURL } from "../support/ApiUrl";
 import { connect } from "react-redux";
 import { LoginSuccessAction } from "./../redux/actions";
-import { Loader } from "react-loader-spinner";
+// import { Loader } from "react-loader-spinner";
 import { Button, Form } from "semantic-ui-react";
 import Swal from "sweetalert2";
 
@@ -49,7 +49,7 @@ class Login extends Component {
     }
     return (
       <div>
-        <div className="mx-auto mt-5" style={{ width: "50%" }}>
+        <div className="mx-auto my-5" style={{ width: "30%" }}>
           <div className="text-center">
             <h1>LOGIN</h1>
           </div>

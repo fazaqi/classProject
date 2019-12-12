@@ -6,12 +6,18 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "semantic-ui-css/semantic.min.css";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter } from "react-router-dom";
-import { createStore } from "redux";
+import {
+  createStore
+  // applyMiddleware
+} from "redux";
 import { Provider } from "react-redux";
 import Reducers from "./redux/reducers";
+// import Thunk from "redux-thunk";
 
 const store = createStore(
   Reducers,
+  // {},
+  // applyMiddleware(Thunk),
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
@@ -28,3 +34,5 @@ ReactDOM.render(
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
+
+//redux-thunk masih error

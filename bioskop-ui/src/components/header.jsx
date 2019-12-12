@@ -13,7 +13,7 @@ import {
   DropdownItem
   // NavbarText
 } from "reactstrap";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { LogoutAction } from "./../redux/actions/AuthAction";
 import { connect } from "react-redux";
 import { Icon } from "semantic-ui-react";
@@ -72,6 +72,7 @@ const Header = props => {
                   <Icon name="user" size="large" className="mr-2" />
                   {props.user}
                 </DropdownToggle>
+
                 <DropdownMenu right>
                   <DropdownItem href="/">Change Password</DropdownItem>
                   <DropdownItem divider />
