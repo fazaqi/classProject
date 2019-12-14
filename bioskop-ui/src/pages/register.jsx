@@ -3,9 +3,12 @@ import { Button, Checkbox, Form } from "semantic-ui-react";
 import Axios from "axios";
 import { APIURL } from "../support/ApiUrl";
 import Swal from "sweetalert2";
+import { Redirect } from "react-router-dom";
 
 class Register extends Component {
-  state = {};
+  state = {
+    toLoginpage: false
+  };
 
   btnRegister = () => {
     var username = this.refs.user.value;
@@ -45,7 +48,8 @@ class Register extends Component {
                     title: "Success!",
                     text: "Your are Registered! Please Login"
                   });
-                  this.props.history.push("login");
+                  // this.props.history.push("login");
+                  this.setState({ toLoginpage: true });
                 })
                 .catch(err1 => {
                   console.log(err1);
@@ -66,6 +70,9 @@ class Register extends Component {
   };
 
   render() {
+    if (this.state.toLoginpage) {
+      return <Redirect to="/login" />;
+    }
     return (
       <div className="mx-auto mt-5" style={{ width: "30%" }}>
         <div className="text-center">

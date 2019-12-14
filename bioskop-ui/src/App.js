@@ -7,6 +7,7 @@ import Login from "./pages/login";
 import MovieDetail from "./pages/movie-detail";
 import BeliTiket from "./pages/belitiket";
 import Register from "./pages/register";
+import Cart from "./pages/cart";
 import Notfound from "./pages/notfound";
 import Axios from "axios";
 import { Switch, Route } from "react-router-dom";
@@ -48,6 +49,7 @@ class App extends Component {
           <Route path={"/moviedetail/:id"} exact component={MovieDetail} />
           <Route path="/belitiket" exact component={BeliTiket} />
           <Route path="/register" exact component={Register} />
+          <Route path="/cart" exact component={Cart} />
           <Route path={"/*"} component={Notfound} />
         </Switch>
       </div>

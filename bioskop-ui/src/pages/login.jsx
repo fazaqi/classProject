@@ -7,6 +7,7 @@ import { LoginSuccessAction } from "./../redux/actions";
 // import { Loader } from "react-loader-spinner";
 import { Button, Form } from "semantic-ui-react";
 import Swal from "sweetalert2";
+import Bounce from "react-reveal/Bounce";
 
 class Login extends Component {
   state = {
@@ -49,28 +50,30 @@ class Login extends Component {
     }
     return (
       <div>
-        <div className="mx-auto my-5" style={{ width: "30%" }}>
-          <div className="text-center">
-            <h1>LOGIN</h1>
-          </div>
-          <Form className="mt-5">
-            <Form.Field>
-              <label>Username</label>
-              <input placeholder="Username" ref="username" />
-            </Form.Field>
-            <Form.Field>
-              <label>Password</label>
-              <input placeholder="Password" type="password" ref="password" />
-            </Form.Field>
-            <Button type="submit" onClick={this.onLoginClick}>
-              Login
-            </Button>
-            <div className="mt-3">
-              Don't have an Account?<Link to={"/register"}> Register</Link>{" "}
-              Here!
+        <Bounce bottom>
+          <div className="mx-auto my-5" style={{ width: "30%" }}>
+            <div className="text-center">
+              <h1>LOGIN</h1>
             </div>
-          </Form>
-        </div>
+            <Form className="mt-5">
+              <Form.Field>
+                <label>Username</label>
+                <input placeholder="Username" ref="username" />
+              </Form.Field>
+              <Form.Field>
+                <label>Password</label>
+                <input placeholder="Password" type="password" ref="password" />
+              </Form.Field>
+              <Button type="submit" onClick={this.onLoginClick}>
+                Login
+              </Button>
+              <div className="mt-3">
+                Don't have an Account?<Link to={"/register"}> Register</Link>{" "}
+                Here!
+              </div>
+            </Form>
+          </div>
+        </Bounce>
       </div>
     );
   }

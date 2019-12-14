@@ -67,20 +67,27 @@ const Header = props => {
                 </DropdownMenu>
               </UncontrolledDropdown>
             ) : props.role === "user" ? (
-              <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
-                  <Icon name="user" size="large" className="mr-2" />
-                  {props.user}
-                </DropdownToggle>
+              <Nav>
+                <NavItem>
+                  <NavLink href="/cart">
+                    <Icon name="cart" size="large" className="mr-2" />
+                  </NavLink>
+                </NavItem>
+                <UncontrolledDropdown nav inNavbar>
+                  <DropdownToggle nav caret>
+                    <Icon name="user" size="large" className="mr-2" />
+                    {props.user}
+                  </DropdownToggle>
 
-                <DropdownMenu right>
-                  <DropdownItem href="/">Change Password</DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem href="/" onClick={btnLogout}>
-                    Logout
-                  </DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown>
+                  <DropdownMenu right>
+                    <DropdownItem href="/">Change Password</DropdownItem>
+                    <DropdownItem divider />
+                    <DropdownItem href="/" onClick={btnLogout}>
+                      Logout
+                    </DropdownItem>
+                  </DropdownMenu>
+                </UncontrolledDropdown>
+              </Nav>
             ) : null}
 
             {/* <NavItem>

@@ -12,6 +12,8 @@ import { Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
 import Fade from "react-reveal/Fade";
 import Swal from "sweetalert2";
 import { Button } from "semantic-ui-react";
+import { connect } from "react-redux";
+import Notfound from "./notfound";
 
 class ManageAdmin extends Component {
   state = {
@@ -309,6 +311,9 @@ class ManageAdmin extends Component {
   render() {
     const { datafilm, indexedit } = this.state;
     const { length } = datafilm;
+    if (this.props.auth !== "admin") {
+      return <Notfound />;
+    }
     if (length === 0) {
       return <div>loading</div>;
     }
@@ -529,4 +534,10 @@ class ManageAdmin extends Component {
   }
 }
 
-export default ManageAdmin;
+const MapstateToprops = state => {
+  return {
+    auth: state.AuthLogin.role
+  };
+};
+
+export default connect(MapstateToprops)(ManageAdmin);

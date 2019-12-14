@@ -3,12 +3,14 @@ import Axios from "axios";
 import { APIURL } from "../support/ApiUrl";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
+import { Button, Modal, ModalBody, ModalFooter } from "reactstrap";
 
 class MovieDetail extends Component {
   state = {
     datadetailfilm: {},
     notlogin: false,
-    buyTicket: false
+    buyTicket: false,
+    toLogin: false
   };
 
   componentDidMount() {
@@ -27,8 +29,9 @@ class MovieDetail extends Component {
     if (this.props.AuthLog) {
       this.setState({ buyTicket: true });
     } else {
-      this.setState({ notlogin: true });
+      this.setState({ toLogin: true });
     }
+    console.log(this.state.toLogin);
   };
 
   render() {
@@ -45,6 +48,31 @@ class MovieDetail extends Component {
     }
     return (
       <div>
+        <Modal
+          isOpen={this.state.toLogin}
+          toggle={() => this.setState({ toLogin: false })}
+        >
+          <ModalBody className="text-center">
+            You Must Login to Continue <br />
+            <br />
+            <br />
+            <Button
+              color="primary"
+              onClick={() => this.setState({ notlogin: true })}
+            >
+              Login
+            </Button>
+          </ModalBody>
+          {/* <ModalFooter>
+            <Button
+              color="primary"
+              onClick={() => this.setState({ notlogin: true })}
+            >
+              Login
+            </Button>
+          </ModalFooter> */}
+        </Modal>
+
         <div
           className="row p-3 mx-3 my-3"
           style={{ border: "1px solid black" }}
@@ -91,18 +119,18 @@ class MovieDetail extends Component {
             </div>
             <div className="col">
               {/*div kanan*/}
-              <div>
-                <p>{this.state.datadetailfilm.genre}</p>
-              </div>
-              <div>
-                <p>{this.state.datadetailfilm.sutradara}</p>
-              </div>
-              <div>
-                <p>{this.state.datadetailfilm.produksi}</p>
-              </div>
-              <div>
-                <p>{this.state.datadetailfilm.sinopsis}</p>
-              </div>
+              {/* <div> */}
+              <p>{this.state.datadetailfilm.genre}</p>
+              {/* </div> */}
+              {/* <div> */}
+              <p>{this.state.datadetailfilm.sutradara}</p>
+              {/* </div> */}
+              {/* <div> */}
+              <p>{this.state.datadetailfilm.produksi}</p>
+              {/* </div> */}
+              {/* <div> */}
+              <p>{this.state.datadetailfilm.sinopsis}</p>
+              {/* </div> */}
               <div>
                 <button onClick={this.btnBuy}>BELI</button>
               </div>
