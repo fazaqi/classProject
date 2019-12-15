@@ -7,7 +7,7 @@ import { LoginSuccessAction } from "./../redux/actions";
 // import { Loader } from "react-loader-spinner";
 import { Button, Form } from "semantic-ui-react";
 import Swal from "sweetalert2";
-import Bounce from "react-reveal/Bounce";
+import Slide from "react-reveal/Slide";
 
 class Login extends Component {
   state = {
@@ -28,7 +28,10 @@ class Login extends Component {
           Swal.fire({
             icon: "success",
             title: "Login Success!",
-            text: `Welcome, ${username}`
+            text: `Welcome, ${username}`,
+            showConfirmButton: false,
+            timer: 1500,
+            timerProgressBar: true
           });
         } else {
           Swal.fire({
@@ -50,7 +53,7 @@ class Login extends Component {
     }
     return (
       <div>
-        <Bounce bottom>
+        <Slide bottom cascade>
           <div className="mx-auto my-5" style={{ width: "30%" }}>
             <div className="text-center">
               <h1>LOGIN</h1>
@@ -73,7 +76,7 @@ class Login extends Component {
               </div>
             </Form>
           </div>
-        </Bounce>
+        </Slide>
       </div>
     );
   }

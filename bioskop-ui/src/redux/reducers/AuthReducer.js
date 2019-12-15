@@ -22,6 +22,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, loading: true, error: "" };
     case "LOGIN_ERROR":
       return { ...state, error: action.payload, loading: false };
+    case "RESET_PASS":
+      return { ...state, ...action.payload };
     case "LOGOUT":
       return INITIAL_STATE;
     default:

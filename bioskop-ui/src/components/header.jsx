@@ -17,25 +17,42 @@ import {
 import { LogoutAction } from "./../redux/actions/AuthAction";
 import { connect } from "react-redux";
 import { Icon } from "semantic-ui-react";
+import logo from "./../support/flix.png";
+// import Swal from "sweetalert2";
 // import "./../App.css";
 
 const btnLogout = () => {
   localStorage.removeItem("dino");
   this.props.LogoutAction();
-  // return <Redirect to={"/"} />;
+
+  // Swal.fire({
+  //   title: "Are You Sure?",
+  //   // text: "You won't be able to revert this!",
+  //   icon: "question",
+  //   showCancelButton: true,
+  //   confirmButtonColor: "#3085d6",
+  //   cancelButtonColor: "#d33",
+  //   cancelButtonText: "Noooo",
+  //   confirmButtonText: "Yesss!"
+  // }).then(result => {
+  //   if (result.value) {
+  //     localStorage.removeItem("dino");
+  //     this.props.LogoutAction();
+  //   }
+  // });
 };
 
 const Header = props => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
-
   return (
     <div>
-      <Navbar className="header" dark expand="md">
+      <Navbar className="header" light expand="md">
         <NavbarBrand href="/" style={{ fontSize: "20px", fontWeight: "600" }}>
-          <Icon name="film" className="mr-2" />
-          XIT ID
+          <img src={logo} alt="" style={{ width: "70px", height: "40px" }} />
+          {/* <Icon name="film" className="mr-2" />
+          XIT ID */}
         </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
@@ -70,17 +87,19 @@ const Header = props => {
               <Nav>
                 <NavItem>
                   <NavLink href="/cart">
-                    <Icon name="cart" size="large" className="mr-2" />
+                    <Icon name="cart" size="large" className="mr-4" />
                   </NavLink>
                 </NavItem>
                 <UncontrolledDropdown nav inNavbar>
                   <DropdownToggle nav caret>
                     <Icon name="user" size="large" className="mr-2" />
-                    {props.user}
+                    {props.user.toUpperCase()}
                   </DropdownToggle>
 
                   <DropdownMenu right>
-                    <DropdownItem href="/">Change Password</DropdownItem>
+                    <DropdownItem href="/resetpass">
+                      Change Password
+                    </DropdownItem>
                     <DropdownItem divider />
                     <DropdownItem href="/" onClick={btnLogout}>
                       Logout

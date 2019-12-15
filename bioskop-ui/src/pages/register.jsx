@@ -4,6 +4,8 @@ import Axios from "axios";
 import { APIURL } from "../support/ApiUrl";
 import Swal from "sweetalert2";
 import { Redirect } from "react-router-dom";
+import Slide from "react-reveal/Slide";
+import { connect } from "react-redux";
 
 class Register extends Component {
   state = {
@@ -70,37 +72,45 @@ class Register extends Component {
   };
 
   render() {
-    if (this.state.toLoginpage) {
+    if (this.state.toLoginpage || this.props.authLog) {
       return <Redirect to="/login" />;
     }
     return (
-      <div className="mx-auto mt-5" style={{ width: "30%" }}>
-        <div className="text-center">
-          <h1>REGISTER</h1>
+      <Slide bottom cascade>
+        <div className="mx-auto mt-5" style={{ width: "30%" }}>
+          <div className="text-center">
+            <h1>REGISTER</h1>
+          </div>
+          <Form className="mt-5">
+            <Form.Field>
+              <label>Username</label>
+              <input placeholder="" ref="user" />
+            </Form.Field>
+            <Form.Field>
+              <label>Password</label>
+              <input placeholder="" type="password" ref="pass" />
+            </Form.Field>
+            <Form.Field>
+              <label>Re-enter Password</label>
+              <input placeholder="" type="password" ref="confPass" />
+            </Form.Field>
+            <Form.Field>
+              <Checkbox label="I agree to the Terms and Conditions" />
+            </Form.Field>
+            <Button type="submit" onClick={this.btnRegister}>
+              Register
+            </Button>
+          </Form>
         </div>
-        <Form className="mt-5">
-          <Form.Field>
-            <label>Username</label>
-            <input placeholder="" ref="user" />
-          </Form.Field>
-          <Form.Field>
-            <label>Password</label>
-            <input placeholder="" type="password" ref="pass" />
-          </Form.Field>
-          <Form.Field>
-            <label>Re-enter Password</label>
-            <input placeholder="" type="password" ref="confPass" />
-          </Form.Field>
-          <Form.Field>
-            <Checkbox label="I agree to the Terms and Conditions" />
-          </Form.Field>
-          <Button type="submit" onClick={this.btnRegister}>
-            Register
-          </Button>
-        </Form>
-      </div>
+      </Slide>
     );
   }
 }
 
-export default Register;
+const MapstateToprops = state => {
+  return {
+    authLog: state.AuthLogin.login
+  };
+};
+
+export default connect(MapstateToprops)(Register);

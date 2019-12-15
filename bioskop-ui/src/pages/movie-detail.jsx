@@ -3,7 +3,7 @@ import Axios from "axios";
 import { APIURL } from "../support/ApiUrl";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
-import { Button, Modal, ModalBody, ModalFooter } from "reactstrap";
+import { Button, Modal, ModalBody } from "reactstrap";
 
 class MovieDetail extends Component {
   state = {
@@ -63,14 +63,6 @@ class MovieDetail extends Component {
               Login
             </Button>
           </ModalBody>
-          {/* <ModalFooter>
-            <Button
-              color="primary"
-              onClick={() => this.setState({ notlogin: true })}
-            >
-              Login
-            </Button>
-          </ModalFooter> */}
         </Modal>
 
         <div
@@ -105,6 +97,9 @@ class MovieDetail extends Component {
             >
               {this.state.datadetailfilm.title}
             </div>
+            <hr />
+            <hr />
+            <hr />
             <div
               className="col-2"
               style={{ border: "1px solid black", width: "10%" }}

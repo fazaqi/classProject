@@ -14,6 +14,7 @@ import { Switch, Route } from "react-router-dom";
 import { APIURL } from "./support/ApiUrl";
 import { LoginSuccessAction } from "./redux/actions";
 import { connect } from "react-redux";
+import Resetpass from "./pages/resetPass";
 
 class App extends Component {
   state = {
@@ -50,6 +51,7 @@ class App extends Component {
           <Route path="/belitiket" exact component={BeliTiket} />
           <Route path="/register" exact component={Register} />
           <Route path="/cart" exact component={Cart} />
+          <Route path="/resetpass" exact component={Resetpass} />
           <Route path={"/*"} component={Notfound} />
         </Switch>
       </div>

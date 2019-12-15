@@ -7,10 +7,10 @@
       "role": "admin"
     },
     {
-      "id": 2,
-      "username": "dobleh",
       "password": "qwe",
-      "role": "user"
+      "username": "dobleh",
+      "role": "user",
+      "id": 2
     },
     {
       "id": 3,
@@ -225,6 +225,74 @@
       "jadwal": 12,
       "totalHarga": 105000,
       "id": 3
+    },
+    {
+      "movieid": 1,
+      "totalharga": 50000,
+      "jadwal": 12,
+      "bayar": false,
+      "id": 4
+    },
+    {
+      "movieid": 1,
+      "totalharga": 50000,
+      "jadwal": 12,
+      "bayar": false,
+      "id": 5
+    },
+    {
+      "movieid": 1,
+      "totalharga": 50000,
+      "jadwal": 12,
+      "bayar": false,
+      "id": 6
+    },
+    {
+      "movieid": 1,
+      "totalharga": 50000,
+      "jadwal": 12,
+      "bayar": false,
+      "id": 7
+    },
+    {
+      "userId": 5,
+      "movieId": 1,
+      "totalHarga": 50000,
+      "jadwal": 12,
+      "bayar": false,
+      "id": 8
+    },
+    {
+      "userId": 5,
+      "movieId": 2,
+      "totalHarga": 125000,
+      "jadwal": 12,
+      "bayar": false,
+      "id": 9
+    },
+    {
+      "userId": 2,
+      "movieId": 1,
+      "totalHarga": 50000,
+      "jadwal": 12,
+      "bayar": false,
+      "id": 10
+    },
+    {
+      "userId": 5,
+      "movieId": 1,
+      "totalHarga": 75000,
+      "jadwal": 12,
+      "bayar": false,
+      "id": 11
+    },
+    {
+      "userId": 5,
+      "movieId": 5,
+      "totalHarga": 75000,
+      "jadwal": 20,
+      "bayar": false,
+      "id": 12
     }
   ],
   "ordersDetails": [
@@ -275,6 +343,144 @@
       "orderId": 3,
       "row": 2,
       "seat": 3
+    },
+    {
+      "orderId": 4,
+      "seat": 0,
+      "row": 0,
+      "id": 9
+    },
+    {
+      "orderId": 4,
+      "seat": 1,
+      "row": 0,
+      "id": 10
+    },
+    {
+      "orderId": 5,
+      "seat": 0,
+      "row": 0,
+      "id": 11
+    },
+    {
+      "orderId": 5,
+      "seat": 1,
+      "row": 0,
+      "id": 12
+    },
+    {
+      "orderId": 6,
+      "seat": 0,
+      "row": 0,
+      "id": 13
+    },
+    {
+      "orderId": 6,
+      "seat": 1,
+      "row": 0,
+      "id": 14
+    },
+    {
+      "orderId": 7,
+      "seat": 8,
+      "row": 3,
+      "id": 15
+    },
+    {
+      "orderId": 7,
+      "seat": 8,
+      "row": 2,
+      "id": 16
+    },
+    {
+      "orderId": 8,
+      "seat": 0,
+      "row": 0,
+      "id": 17
+    },
+    {
+      "orderId": 8,
+      "seat": 1,
+      "row": 0,
+      "id": 18
+    },
+    {
+      "orderId": 9,
+      "seat": 6,
+      "row": 0,
+      "id": 19
+    },
+    {
+      "orderId": 9,
+      "seat": 7,
+      "row": 0,
+      "id": 20
+    },
+    {
+      "orderId": 9,
+      "seat": 8,
+      "row": 0,
+      "id": 21
+    },
+    {
+      "orderId": 9,
+      "seat": 9,
+      "row": 0,
+      "id": 22
+    },
+    {
+      "orderId": 9,
+      "seat": 10,
+      "row": 0,
+      "id": 23
+    },
+    {
+      "orderId": 10,
+      "seat": 6,
+      "row": 0,
+      "id": 24
+    },
+    {
+      "orderId": 10,
+      "seat": 7,
+      "row": 0,
+      "id": 25
+    },
+    {
+      "orderId": 11,
+      "seat": 13,
+      "row": 0,
+      "id": 26
+    },
+    {
+      "orderId": 11,
+      "seat": 14,
+      "row": 0,
+      "id": 27
+    },
+    {
+      "orderId": 11,
+      "seat": 15,
+      "row": 0,
+      "id": 28
+    },
+    {
+      "orderId": 12,
+      "seat": 10,
+      "row": 0,
+      "id": 29
+    },
+    {
+      "orderId": 12,
+      "seat": 9,
+      "row": 1,
+      "id": 30
+    },
+    {
+      "orderId": 12,
+      "seat": 9,
+      "row": 0,
+      "id": 31
     }
   ],
   "transactions": [],

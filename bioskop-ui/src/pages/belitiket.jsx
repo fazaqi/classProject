@@ -4,6 +4,8 @@ import Notfound from "./notfound";
 import Axios from "axios";
 import { APIURL } from "../support/ApiUrl";
 import Numeral from "numeral";
+import { Redirect } from "react-router-dom";
+import Swal from "sweetalert2";
 // import { Button } from "semantic-ui-react";
 
 class BeliTiket extends Component {
@@ -16,10 +18,19 @@ class BeliTiket extends Component {
     jam: 12,
     pilihan: [],
     harga: 0,
-    jumlahtiket: 0
+    jumlahtiket: 0,
+    redirecthome: false
   };
 
   componentDidMount() {
+    console.log(this.props.userRole);
+    if (
+      this.props.userRole === "admin" ||
+      this.props.location.state === undefined ||
+      this.props.AuthLog === false
+    ) {
+      return <Notfound />;
+    }
     this.onJamChange();
   }
 
@@ -184,20 +195,21 @@ class BeliTiket extends Component {
   };
 
   onOrderClick = () => {
-    var userid = this.props.userId;
-    var movieid = this.state.datamovie.id;
+    var userId = this.props.userId;
+    var movieId = this.state.datamovie.id;
     var pilihan = this.state.pilihan;
     var jadwal = this.state.jam;
-    var totalharga = this.state.pilihan.length * 25000;
+    var totalHarga = this.state.pilihan.length * 25000;
     var bayar = false;
-    var data = {
-      userid,
-      movieid,
-      totalharga,
+    var dataorders = {
+      userId,
+      movieId,
+      totalHarga,
       jadwal,
       bayar
     };
-    Axios.post(`${APIURL}orders`, data)
+    console.log(dataorders);
+    Axios.post(`${APIURL}orders`, dataorders)
       .then(res => {
         var dataOrderDetail = [];
         pilihan.forEach(val => {
@@ -214,6 +226,26 @@ class BeliTiket extends Component {
         Axios.all(dataOrderDetail2)
           .then(res1 => {
             console.log(res1);
+            Swal.fire({
+              title: "Are you sure you want to book this ticket?",
+              icon: "question",
+              showCancelButton: true,
+              confirmButtonColor: "#3085d6",
+              cancelButtonColor: "#d33",
+              cancelButtonText: "No",
+              confirmButtonText: "Yes"
+            }).then(result => {
+              if (result.value) {
+                Swal.fire({
+                  icon: "success",
+                  title: "Tickets Booked!",
+                  showConfirmButton: false,
+                  timer: 1500,
+                  timerProgressBar: true
+                });
+                this.setState({ redirecthome: true });
+              }
+            });
           })
           .catch(err => {
             console.log(err);
@@ -225,21 +257,48 @@ class BeliTiket extends Component {
   };
 
   render() {
-    if (this.props.location.state && this.props.AuthLog) {
+    // console.log(this.props.location.state);
+    if (
+      this.props.location.state &&
+      this.props.AuthLog &&
+      this.props.userRole === "user"
+    ) {
+      if (this.state.redirecthome) {
+        return <Redirect to="/" />;
+      }
       return (
         <div>
           <center className="mt-1">
             {this.state.loading ? null : this.renderButton()}
-            <div>
+            <br />
+            {/* <div>
               {this.state.pilihan.length ? (
                 <button className="btn btn-primary"> Order </button>
               ) : null}
             </div>
-            {this.state.pilihan.length ? this.renderHargaQty() : null}
+            <br />
+
+            {this.state.pilihan.length ? this.renderHargaQty() : null} */}
           </center>
+          <hr />
+
           <div className="d-flex justify-content-center mt-4">
             <div>{this.state.loading ? null : this.renderSeat()}</div>
           </div>
+          <hr />
+          <center>
+            <div>
+              {this.state.pilihan.length ? (
+                <button onClick={this.onOrderClick} className="btn btn-primary">
+                  {" "}
+                  Order{" "}
+                </button>
+              ) : null}
+            </div>
+            <br />
+
+            {this.state.pilihan.length ? this.renderHargaQty() : null}
+          </center>
         </div>
       );
     }
@@ -249,7 +308,9 @@ class BeliTiket extends Component {
 
 const MapstateToprops = state => {
   return {
-    AuthLog: state.AuthLogin.login
+    AuthLog: state.AuthLogin.login,
+    userId: state.AuthLogin.id,
+    userRole: state.AuthLogin.role
   };
 };
 
