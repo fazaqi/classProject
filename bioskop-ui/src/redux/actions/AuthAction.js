@@ -21,6 +21,13 @@ export const ResetpassAction = newpass => {
   };
 };
 
+export const Jumlahcart = angka => {
+  return {
+    type: "TAMBAH_CART",
+    payload: angka
+  };
+};
+
 // export const Loginthunk = (username, password) => {
 //   return dispatch => {
 //     dispatch({ type: "LOGIN_LOADING" });

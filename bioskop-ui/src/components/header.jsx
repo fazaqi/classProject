@@ -48,7 +48,7 @@ const Header = props => {
   const toggle = () => setIsOpen(!isOpen);
   return (
     <div>
-      <Navbar className="header" light expand="md">
+      <Navbar className="header" dark expand="md">
         <NavbarBrand href="/" style={{ fontSize: "20px", fontWeight: "600" }}>
           <img src={logo} alt="" style={{ width: "70px", height: "40px" }} />
           {/* <Icon name="film" className="mr-2" />
@@ -72,13 +72,20 @@ const Header = props => {
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
                   <Icon name="user secret" size="large" className="mr-2" />
-                  {props.user}
+                  {props.user.toUpperCase()}
                 </DropdownToggle>
                 <DropdownMenu right>
-                  <DropdownItem href="/manageadmin">Manage Movies</DropdownItem>
-                  <DropdownItem href="/">Manage Studio</DropdownItem>
+                  <DropdownItem href="/manageadmin">
+                    <Icon name="cog" />
+                    Manage Movies
+                  </DropdownItem>
+                  <DropdownItem href="/managestudio">
+                    <Icon name="cog" />
+                    Manage Studio
+                  </DropdownItem>
                   <DropdownItem divider />
                   <DropdownItem href="/" onClick={btnLogout}>
+                    <Icon name="log out" />
                     Logout
                   </DropdownItem>
                 </DropdownMenu>
@@ -86,8 +93,14 @@ const Header = props => {
             ) : props.role === "user" ? (
               <Nav>
                 <NavItem>
+                  <NavLink href="/history">
+                    <Icon name="history" size="large" className="mr-2" />
+                  </NavLink>
+                </NavItem>
+                <NavItem>
                   <NavLink href="/cart">
-                    <Icon name="cart" size="large" className="mr-4" />
+                    {props.cart}
+                    <Icon name="ticket" size="large" className="mr-2" />
                   </NavLink>
                 </NavItem>
                 <UncontrolledDropdown nav inNavbar>
@@ -98,10 +111,12 @@ const Header = props => {
 
                   <DropdownMenu right>
                     <DropdownItem href="/resetpass">
+                      <Icon name="cog" />
                       Change Password
                     </DropdownItem>
                     <DropdownItem divider />
                     <DropdownItem href="/" onClick={btnLogout}>
+                      <Icon name="log out" />
                       Logout
                     </DropdownItem>
                   </DropdownMenu>
@@ -132,7 +147,8 @@ const MapstateToprops = state => {
   return {
     AuthLog: state.AuthLogin.login,
     user: state.AuthLogin.username,
-    role: state.AuthLogin.role
+    role: state.AuthLogin.role,
+    cart: state.AuthLogin.cart
   };
 };
 

@@ -34,6 +34,7 @@ class BeliTiket extends Component {
     this.onJamChange();
   }
 
+  //////////////////////////////////////////////////////////////////////////
   onJamChange = () => {
     var studioId = this.props.location.state.studioId;
     var movieId = this.props.location.state.id;
@@ -211,6 +212,16 @@ class BeliTiket extends Component {
     console.log(dataorders);
     Axios.post(`${APIURL}orders`, dataorders)
       .then(res => {
+        ////////////////Axios untuk get jumlah cart
+        Axios.get(`${APIURL}orders?userId=${res.data.id}`)
+          .then(res7 => {
+            // console.log(res7.data.length);
+            this.props.Jumlahcart(res7.data.length);
+          })
+          .catch(err => {
+            console.log(err);
+          });
+        ////////////////
         var dataOrderDetail = [];
         pilihan.forEach(val => {
           dataOrderDetail.push({
@@ -243,7 +254,9 @@ class BeliTiket extends Component {
                   timer: 1500,
                   timerProgressBar: true
                 });
+
                 this.setState({ redirecthome: true });
+                window.location.reload();
               }
             });
           })
@@ -289,11 +302,13 @@ class BeliTiket extends Component {
           <center>
             <div>
               {this.state.pilihan.length ? (
+                // <Link to="/">
                 <button onClick={this.onOrderClick} className="btn btn-primary">
                   {" "}
                   Order{" "}
                 </button>
-              ) : null}
+              ) : // </Link>
+              null}
             </div>
             <br />
 

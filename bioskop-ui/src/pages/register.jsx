@@ -97,7 +97,7 @@ class Register extends Component {
             <Form.Field>
               <Checkbox label="I agree to the Terms and Conditions" />
             </Form.Field>
-            <Button type="submit" onClick={this.btnRegister}>
+            <Button fluid type="submit" onClick={this.btnRegister}>
               Register
             </Button>
           </Form>

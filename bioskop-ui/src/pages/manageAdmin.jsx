@@ -18,6 +18,7 @@ import Notfound from "./notfound";
 class ManageAdmin extends Component {
   state = {
     datafilm: [],
+    datastudio: [],
     readmoreselected: -1,
     modaladd: false,
     modaledit: false,
@@ -29,8 +30,19 @@ class ManageAdmin extends Component {
   componentDidMount() {
     Axios.get(`${APIURL}movies`)
       .then(res => {
+        Axios.get(`${APIURL}studios`)
+          .then(res1 => {
+            this.setState({
+              datafilm: res.data,
+              datastudio: res1.data
+            });
+            // console.log(this.state.datastudio);
+          })
+          .catch(err => {
+            console.log(err);
+          });
         // console.log(res.data)
-        this.setState({ datafilm: res.data });
+        // this.setState({ datafilm: res.data });
       })
       .catch(err => {
         console.log(err);
@@ -363,9 +375,16 @@ class ManageAdmin extends Component {
               className="form-control mt-2"
             />
             <select ref="editstudio" className="form-control mt-2">
-              <option value="1">Studio 1</option>
+              {this.state.datastudio.map(val => {
+                return (
+                  <option value={val.id} defaultValue={val.nama}>
+                    {val.nama}
+                  </option>
+                );
+              })}
+              {/* <option value="1">Studio 1</option>
               <option value="2">Studio 2</option>
-              <option value="3">Studio 3</option>
+              <option value="3">Studio 3</option> */}
             </select>
             <input
               type="text"

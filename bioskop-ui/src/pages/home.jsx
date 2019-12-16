@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Axios from "axios";
 import { Link } from "react-router-dom";
-import Flip from "react-reveal/Flip";
+import Fade from "react-reveal/Fade";
 
 const url = "http://localhost:2000/";
 
@@ -45,14 +45,14 @@ class Home extends Component {
   render() {
     return (
       <div className=" mx-5">
-        <Flip right cascade>
+        <Fade bottom cascade>
           <div
             className="row py-5 "
             style={{ paddingLeft: "10%", paddingRight: "10%" }}
           >
             {this.renderMovies()}
           </div>
-        </Flip>
+        </Fade>
       </div>
     );
   }

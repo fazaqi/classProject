@@ -5,6 +5,7 @@ import { Table } from "reactstrap";
 import { APIURL } from "./../support/ApiUrl";
 import Notfound from "./notfound";
 // import { Redirect } from "react-router-dom";
+import { Button, Icon } from "semantic-ui-react";
 
 class Cart extends Component {
   state = {
@@ -48,6 +49,7 @@ class Cart extends Component {
   }
 
   renderCart = () => {
+    console.log(this.state.datacart);
     if (this.state.datacart !== null) {
       if (this.state.datacart.length === 0) {
         return (
@@ -63,7 +65,17 @@ class Cart extends Component {
             <td style={{ width: 300 }}>{val.movie.title}</td>
             <td style={{ width: 100 }}>{val.jadwal}.00</td>
             <td style={{ width: 100 }}>{val.qty.length}</td>
-            <td style={{ width: 100 }}>Details</td>
+            <td style={{ width: 100 }}>
+              {/* <Button primary size="mini">
+                Details
+              </Button> */}
+              <Button animated="vertical" color="blue">
+                <Button.Content hidden>Details</Button.Content>
+                <Button.Content visible>
+                  <Icon name="question" />
+                </Button.Content>
+              </Button>
+            </td>
           </tr>
         );
       });

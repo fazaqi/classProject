@@ -25,8 +25,8 @@
       "role": "user"
     },
     {
-      "username": "joji",
       "password": "ijo",
+      "username": "joji",
       "role": "user",
       "id": 5
     },
@@ -69,15 +69,8 @@
       "genre": "Action, Fantasy",
       "durasi": "123",
       "produksi": "Columbia Pictures",
-      "jadwal": [
-        12,
-        14,
-        16,
-        18,
-        20,
-        22
-      ],
-      "trailer": "https://www.youtube.com/watch?v=rBxcF-r9Ibs",
+      "jadwal": [12, 14, 16, 18, 20, 22],
+      "trailer": "https://www.youtube.com/embed/rBxcF-r9Ibs",
       "studioId": "1",
       "id": 1
     },
@@ -90,13 +83,9 @@
       "sinopsis": "Resistance yang selamat sekali lagi akan menghadapi First Order dalam sebuah saga final yang akan menentukan nasib mereka.",
       "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157416306567553_287x421.jpg",
       "genre": "Action, Fantasy",
-      "jadwal": [
-        12,
-        14,
-        16
-      ],
+      "jadwal": [12, 14, 16],
       "studioId": 2,
-      "trailer": "https://youtu.be/8Qn_spdM5Zg"
+      "trailer": "https://www.youtube.com/embed/8Qn_spdM5Zg"
     },
     {
       "id": 3,
@@ -107,13 +96,9 @@
       "sinopsis": "Versi terbaru Charlie's Angels akan membawa kita pada petualangan baru yang lebih seru dan lebih segar. Sabina Wilson (Kristen Stewart) dan rekannya, Jane Kano (Ella Balinska), diberi tugas oleh Charlie untuk melindungi Elena Houghlin (Naomi Scott), seorang insinyur muda yang merevolusi industri listrik, namun memiliki potensi untuk menjadi senjata mematikan. Charlie's Angels menjalankan misi dan mempertaruhkan nyawa mereka demi menyelamatkan dunia dan mencegah teroris menyalahgunakan teknologi alat tersebut.",
       "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157224569350378_287x421.jpg",
       "genre": "Action",
-      "jadwal": [
-        12,
-        18,
-        20
-      ],
+      "jadwal": [12, 18, 20],
       "studioId": 1,
-      "trailer": "https://youtu.be/RSUq4VfWfjE"
+      "trailer": "https://www.youtube.com/embed/RSUq4VfWfjE"
     },
     {
       "title": "Bombshell",
@@ -123,13 +108,8 @@
       "genre": "Biography, Drama",
       "durasi": "123",
       "produksi": "Lionsgate",
-      "jadwal": [
-        12,
-        14,
-        20,
-        22
-      ],
-      "trailer": "https://youtu.be/YXL33tEUA3g",
+      "jadwal": [12, 14, 20, 22],
+      "trailer": "https://youtube.com/embed/YXL33tEUA3g",
       "studioId": "2",
       "id": 5
     },
@@ -141,12 +121,8 @@
       "genre": "Animation, Adventure, Comedy",
       "durasi": "103",
       "produksi": "Walt Disney Pictures",
-      "jadwal": [
-        12,
-        14,
-        16
-      ],
-      "trailer": "https://youtu.be/bwzLiQZDw2I",
+      "jadwal": [12, 14, 16],
+      "trailer": "https://youtube.com/embed/bwzLiQZDw2I",
       "studioId": "2",
       "id": 6
     },
@@ -158,12 +134,8 @@
       "genre": "Comedy, Crime, Drama",
       "durasi": "130",
       "produksi": "Mongrel Media",
-      "jadwal": [
-        12,
-        14,
-        18
-      ],
-      "trailer": "https://youtu.be/sL-9Khv7wa4",
+      "jadwal": [12, 14, 18],
+      "trailer": "https://youtube.com/embed/sL-9Khv7wa4",
       "studioId": "3",
       "id": 7
     },
@@ -175,12 +147,8 @@
       "genre": "Action, Biography, Drama",
       "durasi": "152",
       "produksi": "20th Century Fox",
-      "jadwal": [
-        12,
-        16,
-        18
-      ],
-      "trailer": "https://youtu.be/zyYgDtY2AMY",
+      "jadwal": [12, 16, 18],
+      "trailer": "https://youtube.com/embed/zyYgDtY2AMY",
       "studioId": "2",
       "id": 8
     },
@@ -192,11 +160,8 @@
       "genre": "Drama, Sci-Fi",
       "durasi": "103",
       "produksi": "Visinema Pictures",
-      "jadwal": [
-        18,
-        22
-      ],
-      "trailer": "https://youtu.be/Y7maBc4tx6g",
+      "jadwal": [18, 22],
+      "trailer": "https://youtube.com/embed/Y7maBc4tx6g",
       "studioId": "3",
       "id": 9
     }
@@ -225,34 +190,6 @@
       "jadwal": 12,
       "totalHarga": 105000,
       "id": 3
-    },
-    {
-      "movieid": 1,
-      "totalharga": 50000,
-      "jadwal": 12,
-      "bayar": false,
-      "id": 4
-    },
-    {
-      "movieid": 1,
-      "totalharga": 50000,
-      "jadwal": 12,
-      "bayar": false,
-      "id": 5
-    },
-    {
-      "movieid": 1,
-      "totalharga": 50000,
-      "jadwal": 12,
-      "bayar": false,
-      "id": 6
-    },
-    {
-      "movieid": 1,
-      "totalharga": 50000,
-      "jadwal": 12,
-      "bayar": false,
-      "id": 7
     },
     {
       "userId": 5,
@@ -293,6 +230,134 @@
       "jadwal": 20,
       "bayar": false,
       "id": 12
+    },
+    {
+      "userId": 5,
+      "movieId": 2,
+      "totalHarga": 25000,
+      "jadwal": 12,
+      "bayar": false,
+      "id": 13
+    },
+    {
+      "userId": 5,
+      "movieId": 3,
+      "totalHarga": 25000,
+      "jadwal": 12,
+      "bayar": false,
+      "id": 14
+    },
+    {
+      "userId": 5,
+      "movieId": 1,
+      "totalHarga": 25000,
+      "jadwal": 12,
+      "bayar": false,
+      "id": 15
+    },
+    {
+      "userId": 5,
+      "movieId": 1,
+      "totalHarga": 25000,
+      "jadwal": 12,
+      "bayar": false,
+      "id": 16
+    },
+    {
+      "userId": 5,
+      "movieId": 2,
+      "totalHarga": 25000,
+      "jadwal": 12,
+      "bayar": false,
+      "id": 17
+    },
+    {
+      "userId": 5,
+      "movieId": 1,
+      "totalHarga": 25000,
+      "jadwal": 12,
+      "bayar": false,
+      "id": 18
+    },
+    {
+      "userId": 5,
+      "movieId": 2,
+      "totalHarga": 25000,
+      "jadwal": 12,
+      "bayar": false,
+      "id": 19
+    },
+    {
+      "userId": 5,
+      "movieId": 5,
+      "totalHarga": 50000,
+      "jadwal": 12,
+      "bayar": false,
+      "id": 20
+    },
+    {
+      "userId": 5,
+      "movieId": 1,
+      "totalHarga": 25000,
+      "jadwal": 12,
+      "bayar": false,
+      "id": 21
+    },
+    {
+      "userId": 5,
+      "movieId": 5,
+      "totalHarga": 25000,
+      "jadwal": 12,
+      "bayar": false,
+      "id": 22
+    },
+    {
+      "userId": 5,
+      "movieId": 5,
+      "totalHarga": 25000,
+      "jadwal": 12,
+      "bayar": false,
+      "id": 23
+    },
+    {
+      "userId": 5,
+      "movieId": 5,
+      "totalHarga": 25000,
+      "jadwal": 12,
+      "bayar": false,
+      "id": 24
+    },
+    {
+      "userId": 5,
+      "movieId": 3,
+      "totalHarga": 25000,
+      "jadwal": 12,
+      "bayar": false,
+      "id": 25
+    },
+    {
+      "userId": 5,
+      "movieId": 3,
+      "totalHarga": 50000,
+      "jadwal": 12,
+      "bayar": false,
+      "id": 26
+    },
+    {
+      "userId": 5,
+      "movieId": 5,
+      "totalHarga": 50000,
+      "jadwal": 12,
+      "bayar": false,
+      "id": 27
+    },
+    {
+      "userId": 5,
+      "movieId": 1,
+      "totalHarga": 50000,
+      "jadwal": 12,
+      "bayar": false,
+      "id": 28
     }
   ],
   "ordersDetails": [
@@ -481,6 +546,126 @@
       "seat": 9,
       "row": 0,
       "id": 31
+    },
+    {
+      "orderId": 13,
+      "seat": 11,
+      "row": 0,
+      "id": 32
+    },
+    {
+      "orderId": 14,
+      "seat": 10,
+      "row": 2,
+      "id": 33
+    },
+    {
+      "orderId": 15,
+      "seat": 12,
+      "row": 2,
+      "id": 34
+    },
+    {
+      "orderId": 16,
+      "seat": 12,
+      "row": 3,
+      "id": 35
+    },
+    {
+      "orderId": 17,
+      "seat": 14,
+      "row": 0,
+      "id": 36
+    },
+    {
+      "orderId": 18,
+      "seat": 10,
+      "row": 0,
+      "id": 37
+    },
+    {
+      "orderId": 19,
+      "seat": 12,
+      "row": 0,
+      "id": 38
+    },
+    {
+      "orderId": 20,
+      "seat": 8,
+      "row": 0,
+      "id": 39
+    },
+    {
+      "orderId": 20,
+      "seat": 9,
+      "row": 0,
+      "id": 40
+    },
+    {
+      "orderId": 21,
+      "seat": 10,
+      "row": 1,
+      "id": 41
+    },
+    {
+      "orderId": 22,
+      "seat": 10,
+      "row": 0,
+      "id": 42
+    },
+    {
+      "orderId": 23,
+      "seat": 11,
+      "row": 1,
+      "id": 43
+    },
+    {
+      "orderId": 24,
+      "seat": 12,
+      "row": 1,
+      "id": 44
+    },
+    {
+      "orderId": 25,
+      "seat": 11,
+      "row": 0,
+      "id": 45
+    },
+    {
+      "orderId": 26,
+      "seat": 9,
+      "row": 0,
+      "id": 46
+    },
+    {
+      "orderId": 26,
+      "seat": 8,
+      "row": 0,
+      "id": 47
+    },
+    {
+      "orderId": 27,
+      "seat": 9,
+      "row": 1,
+      "id": 48
+    },
+    {
+      "orderId": 27,
+      "seat": 8,
+      "row": 1,
+      "id": 49
+    },
+    {
+      "orderId": 28,
+      "seat": 10,
+      "row": 2,
+      "id": 50
+    },
+    {
+      "orderId": 28,
+      "seat": 9,
+      "row": 2,
+      "id": 51
     }
   ],
   "transactions": [],

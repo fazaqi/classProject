@@ -95,7 +95,12 @@ class Resetpass extends Component {
           <Form className="mt-5">
             <Form.Field>
               <label>Username</label>
-              <input disabled placeholder={this.props.usernamelog} ref="user" />
+              <input
+                disabled
+                // placeholder={this.props.usernamelog}
+                defaultValue={this.props.usernamelog}
+                ref="user"
+              />
             </Form.Field>
             <Form.Field>
               <label>Old Password</label>

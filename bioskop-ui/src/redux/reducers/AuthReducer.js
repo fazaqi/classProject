@@ -5,7 +5,8 @@ const INITIAL_STATE = {
   role: "",
   login: false,
   error: "",
-  loading: false
+  loading: false,
+  cart: 0
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -24,6 +25,8 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state, error: action.payload, loading: false };
     case "RESET_PASS":
       return { ...state, ...action.payload };
+    case "TAMBAH_CART":
+      return { ...state, cart: action.payload };
     case "LOGOUT":
       return INITIAL_STATE;
     default:

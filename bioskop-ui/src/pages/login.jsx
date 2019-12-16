@@ -67,7 +67,7 @@ class Login extends Component {
                 <label>Password</label>
                 <input placeholder="Password" type="password" ref="password" />
               </Form.Field>
-              <Button type="submit" onClick={this.onLoginClick}>
+              <Button fluid type="submit" onClick={this.onLoginClick}>
                 Login
               </Button>
               <div className="mt-3">
