@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Axios from "axios";
 import { connect } from "react-redux";
-import { Table } from "reactstrap";
+import { Table, Modal, ModalBody } from "reactstrap";
 import { APIURL } from "./../support/ApiUrl";
 import Notfound from "./notfound";
 // import { Redirect } from "react-router-dom";
@@ -9,7 +9,10 @@ import { Button, Icon } from "semantic-ui-react";
 
 class Cart extends Component {
   state = {
-    datacart: null
+    datacart: null,
+    detailseat: null,
+    totalharga: 0,
+    modalDetail: false
   };
 
   componentDidMount() {
@@ -65,11 +68,13 @@ class Cart extends Component {
             <td style={{ width: 300 }}>{val.movie.title}</td>
             <td style={{ width: 100 }}>{val.jadwal}.00</td>
             <td style={{ width: 100 }}>{val.qty.length}</td>
+            <td style={{ width: 100 }}>Rp {val.totalHarga}</td>
             <td style={{ width: 100 }}>
-              {/* <Button primary size="mini">
-                Details
-              </Button> */}
-              <Button animated="vertical" color="blue">
+              <Button
+                animated="vertical"
+                color="blue"
+                onClick={() => this.btnDetail(index)}
+              >
                 <Button.Content hidden>Details</Button.Content>
                 <Button.Content visible>
                   <Icon name="question" />
@@ -82,30 +87,92 @@ class Cart extends Component {
     }
   };
 
+  btnDetail = index => {
+    this.setState({ modalDetail: true });
+    var id = this.state.datacart[index].id;
+    Axios.get(`${APIURL}ordersDetails?orderId=${id}`)
+      .then(res => {
+        var detailfilm = res.data;
+        var seat = [];
+        var row = [];
+        detailfilm.map((val, index) => {
+          seat.push(val.seat);
+          row.push(val.row);
+        });
+        var alfabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        var posisi = [];
+        for (let i = 0; i < seat.length; i++) {
+          for (let j = 0; j < alfabet.length; j++) {
+            if (row[i] === j) {
+              posisi.push(alfabet[j] + (seat[i] + 1));
+            }
+          }
+        }
+        this.setState({ detailseat: posisi });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
   render() {
+    console.log(this.state.detailseat);
     if (this.props.UserId && this.props.userRole === "user") {
       return (
         <div>
+          <Modal
+            isOpen={this.state.modalDetail}
+            toggle={() => this.setState({ modalDetail: false })}
+          >
+            <ModalBody className="text-center">
+              <Table>
+                <thead>
+                  <tr>
+                    <th>Total</th>
+                    <th>Seat</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {this.state.detailseat ? (
+                    <tr>
+                      <th> {this.state.detailseat.length} </th>
+                      <th>
+                        {this.state.detailseat.map(val => {
+                          return val + " ";
+                        })}
+                      </th>
+                    </tr>
+                  ) : null}
+                </tbody>
+              </Table>
+              <br />
+              <br />
+              <br />
+              <Button
+                color="green"
+                onClick={() => this.setState({ modalDetail: false })}
+              >
+                Close
+              </Button>
+            </ModalBody>
+          </Modal>
           <center>
-            <Table style={{ width: 600 }}>
+            <h1>Cart</h1>
+            <br />
+            <Table style={{ width: "50%" }}>
               <thead>
                 <tr>
                   <th style={{ width: 100 }}>No</th>
                   <th style={{ width: 300 }}>Title</th>
                   <th style={{ width: 100 }}>Jadwal</th>
                   <th style={{ width: 100 }}>Qty</th>
+                  <th style={{ width: 100 }}>Harga</th>
                   <th style={{ width: 100 }}>Detail</th>
                 </tr>
               </thead>
               <tbody>{this.renderCart()}</tbody>
-              <tfoot>
-                <tr>
-                  <td>
-                    <button>Checkout</button>
-                  </td>
-                </tr>
-              </tfoot>
             </Table>
+            <Button color="green">Checkout</Button>
           </center>
         </div>
       );

@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { Modal, ModalBody } from "reactstrap";
 import { Button, Icon } from "semantic-ui-react";
+import { MdAccessTime } from "react-icons/md";
 
 class MovieDetail extends Component {
   state = {
@@ -95,11 +96,11 @@ class MovieDetail extends Component {
           ></iframe>
         </Modal>
 
-        <div className="p-3">
+        <div className="p-3 ml-3">
           <h2>NOW PLAYING</h2>
         </div>
-        <div className="row">
-          <div className="col-md-4">
+        <div className="row ml-3">
+          <div className="col-md-3">
             <img
               src={this.state.datadetailfilm.image}
               alt="poster"
@@ -107,12 +108,27 @@ class MovieDetail extends Component {
             />
           </div>
           <div className="col-md-8">
-            <h3>{this.state.datadetailfilm.title}</h3>
+            <h2>{this.state.datadetailfilm.title}</h2>
 
-            <br />
+            <h3>
+              <MdAccessTime /> {this.state.datadetailfilm.durasi} Minutes{" "}
+            </h3>
             <hr />
             <div>
-              <ul>
+              <p>
+                Genre Film &nbsp;&nbsp;&nbsp;&nbsp; :
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {this.state.datadetailfilm.genre}
+              </p>
+              <p>
+                Sutradata &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :
+                &nbsp;&nbsp;&nbsp;&nbsp; {this.state.datadetailfilm.sutradara}
+              </p>
+              <p>
+                Produksi &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :
+                &nbsp;&nbsp;&nbsp;&nbsp; {this.state.datadetailfilm.produksi}
+              </p>
+              {/* <ul>
                 <li>
                   <span>Genre Film </span>: {this.state.datadetailfilm.genre}
                 </li>
@@ -122,7 +138,7 @@ class MovieDetail extends Component {
                 <li>
                   <span>Produksi </span>: {this.state.datadetailfilm.produksi}
                 </li>
-              </ul>
+              </ul> */}
             </div>
             <hr />
             <div>

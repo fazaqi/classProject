@@ -29,7 +29,7 @@ class Managestudio extends Component {
           <Table.Cell>{val.nama}</Table.Cell>
           <Table.Cell>{val.jumlahKursi}</Table.Cell>
           <Table.Cell>
-            <Button animated="vertical" color="teal">
+            <Button animated="vertical" color="teal" size="tiny">
               <Button.Content hidden>Edit</Button.Content>
               <Button.Content visible>
                 <Icon name="cog" />
@@ -47,39 +47,21 @@ class Managestudio extends Component {
         <div>
           <center>
             <h1 className="my-4">Manage Studio</h1>
+
+            {/* <br /> */}
+            <Table celled style={{ width: "50%" }}>
+              <Table.Header>
+                <Table.Row>
+                  <Table.HeaderCell>No.</Table.HeaderCell>
+                  <Table.HeaderCell>Nama Studio</Table.HeaderCell>
+                  <Table.HeaderCell>Jumlah Seat</Table.HeaderCell>
+                  <Table.HeaderCell>Action</Table.HeaderCell>
+                </Table.Row>
+              </Table.Header>
+
+              <Table.Body>{this.renderTable()}</Table.Body>
+            </Table>
           </center>
-          {/* <br /> */}
-          <Table celled className="tabel">
-            <Table.Header>
-              <Table.Row>
-                <Table.HeaderCell>No.</Table.HeaderCell>
-                <Table.HeaderCell>Nama Studio</Table.HeaderCell>
-                <Table.HeaderCell>Jumlah Seat</Table.HeaderCell>
-                <Table.HeaderCell>Action</Table.HeaderCell>
-              </Table.Row>
-            </Table.Header>
-
-            <Table.Body>{this.renderTable()}</Table.Body>
-
-            {/* <Table.Footer>
-            <Table.Row>
-              <Table.HeaderCell colSpan="3">
-                <Menu floated="right" pagination>
-                  <Menu.Item as="a" icon>
-                    <Icon name="chevron left" />
-                  </Menu.Item>
-                  <Menu.Item as="a">1</Menu.Item>
-                  <Menu.Item as="a">2</Menu.Item>
-                  <Menu.Item as="a">3</Menu.Item>
-                  <Menu.Item as="a">4</Menu.Item>
-                  <Menu.Item as="a" icon>
-                    <Icon name="chevron right" />
-                  </Menu.Item>
-                </Menu>
-              </Table.HeaderCell>
-            </Table.Row>
-          </Table.Footer> */}
-          </Table>
         </div>
       );
     }

@@ -196,7 +196,7 @@
       "movieId": 1,
       "totalHarga": 50000,
       "jadwal": 12,
-      "bayar": false,
+      "bayar": true,
       "id": 8
     },
     {
@@ -358,6 +358,22 @@
       "jadwal": 12,
       "bayar": false,
       "id": 28
+    },
+    {
+      "userId": 5,
+      "movieId": 1,
+      "totalHarga": 25000,
+      "jadwal": 12,
+      "bayar": false,
+      "id": 29
+    },
+    {
+      "userId": 5,
+      "movieId": 2,
+      "totalHarga": 50000,
+      "jadwal": 12,
+      "bayar": false,
+      "id": 30
     }
   ],
   "ordersDetails": [
@@ -666,6 +682,24 @@
       "seat": 9,
       "row": 2,
       "id": 51
+    },
+    {
+      "orderId": 29,
+      "seat": 7,
+      "row": 1,
+      "id": 52
+    },
+    {
+      "orderId": 30,
+      "seat": 9,
+      "row": 2,
+      "id": 53
+    },
+    {
+      "orderId": 30,
+      "seat": 10,
+      "row": 2,
+      "id": 54
     }
   ],
   "transactions": [],
