@@ -69,14 +69,7 @@
       "genre": "Action, Fantasy",
       "durasi": "123",
       "produksi": "Columbia Pictures",
-      "jadwal": [
-        12,
-        14,
-        16,
-        18,
-        20,
-        22
-      ],
+      "jadwal": [12, 14, 16, 18, 20, 22],
       "trailer": "https://www.youtube.com/embed/rBxcF-r9Ibs",
       "studioId": "1",
       "id": 1
@@ -90,11 +83,7 @@
       "sinopsis": "Resistance yang selamat sekali lagi akan menghadapi First Order dalam sebuah saga final yang akan menentukan nasib mereka.",
       "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157416306567553_287x421.jpg",
       "genre": "Action, Fantasy",
-      "jadwal": [
-        12,
-        14,
-        16
-      ],
+      "jadwal": [12, 14, 16],
       "studioId": 2,
       "trailer": "https://www.youtube.com/embed/8Qn_spdM5Zg"
     },
@@ -107,11 +96,7 @@
       "sinopsis": "Versi terbaru Charlie's Angels akan membawa kita pada petualangan baru yang lebih seru dan lebih segar. Sabina Wilson (Kristen Stewart) dan rekannya, Jane Kano (Ella Balinska), diberi tugas oleh Charlie untuk melindungi Elena Houghlin (Naomi Scott), seorang insinyur muda yang merevolusi industri listrik, namun memiliki potensi untuk menjadi senjata mematikan. Charlie's Angels menjalankan misi dan mempertaruhkan nyawa mereka demi menyelamatkan dunia dan mencegah teroris menyalahgunakan teknologi alat tersebut.",
       "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157224569350378_287x421.jpg",
       "genre": "Action",
-      "jadwal": [
-        12,
-        18,
-        20
-      ],
+      "jadwal": [12, 18, 20],
       "studioId": 1,
       "trailer": "https://www.youtube.com/embed/RSUq4VfWfjE"
     },
@@ -123,12 +108,7 @@
       "genre": "Biography, Drama",
       "durasi": "123",
       "produksi": "Lionsgate",
-      "jadwal": [
-        12,
-        14,
-        20,
-        22
-      ],
+      "jadwal": [12, 14, 20, 22],
       "trailer": "https://youtube.com/embed/YXL33tEUA3g",
       "studioId": "2",
       "id": 5
@@ -141,11 +121,7 @@
       "genre": "Animation, Adventure, Comedy",
       "durasi": "103",
       "produksi": "Walt Disney Pictures",
-      "jadwal": [
-        12,
-        14,
-        16
-      ],
+      "jadwal": [12, 14, 16],
       "trailer": "https://youtube.com/embed/bwzLiQZDw2I",
       "studioId": "2",
       "id": 6
@@ -158,11 +134,7 @@
       "genre": "Comedy, Crime, Drama",
       "durasi": "130",
       "produksi": "Mongrel Media",
-      "jadwal": [
-        12,
-        14,
-        18
-      ],
+      "jadwal": [12, 14, 18],
       "trailer": "https://youtube.com/embed/sL-9Khv7wa4",
       "studioId": "3",
       "id": 7
@@ -175,11 +147,7 @@
       "genre": "Action, Biography, Drama",
       "durasi": "152",
       "produksi": "20th Century Fox",
-      "jadwal": [
-        12,
-        16,
-        18
-      ],
+      "jadwal": [12, 16, 18],
       "trailer": "https://youtube.com/embed/zyYgDtY2AMY",
       "studioId": "2",
       "id": 8
@@ -192,312 +160,14 @@
       "genre": "Drama, Sci-Fi",
       "durasi": "103",
       "produksi": "Visinema Pictures",
-      "jadwal": [
-        18,
-        22
-      ],
+      "jadwal": [18, 22],
       "trailer": "https://youtube.com/embed/Y7maBc4tx6g",
       "studioId": "3",
       "id": 9
     }
   ],
-  "orders": [
-    {
-      "userId": 2,
-      "movieId": 7,
-      "totalHarga": 50000,
-      "jadwal": 12,
-      "bayar": true,
-      "id": 1
-    },
-    {
-      "userId": 5,
-      "movieId": 1,
-      "totalHarga": 50000,
-      "jadwal": 12,
-      "bayar": true,
-      "id": 2
-    },
-    {
-      "userId": 5,
-      "movieId": 3,
-      "totalHarga": 50000,
-      "jadwal": 12,
-      "bayar": true,
-      "id": 3
-    },
-    {
-      "userId": 2,
-      "movieId": 2,
-      "totalHarga": 50000,
-      "jadwal": 12,
-      "bayar": true,
-      "id": 4
-    }
-  ],
-  "ordersDetails": [
-    {
-      "orderId": 1,
-      "seat": 9,
-      "row": 0,
-      "id": 1
-    },
-    {
-      "orderId": 1,
-      "seat": 10,
-      "row": 0,
-      "id": 2
-    },
-    {
-      "orderId": 2,
-      "seat": 8,
-      "row": 0,
-      "id": 3
-    },
-    {
-      "orderId": 2,
-      "seat": 9,
-      "row": 0,
-      "id": 4
-    },
-    {
-      "orderId": 3,
-      "seat": 10,
-      "row": 3,
-      "id": 5
-    },
-    {
-      "orderId": 3,
-      "seat": 9,
-      "row": 3,
-      "id": 6
-    },
-    {
-      "orderId": 4,
-      "seat": 11,
-      "row": 0,
-      "id": 7
-    },
-    {
-      "orderId": 4,
-      "seat": 10,
-      "row": 0,
-      "id": 8
-    }
-  ],
-  "transactions": [
-    {
-      "date": "18-12-2019",
-      "jumlahHarga": 50000,
-      "userId": 2,
-      "id": 1
-    },
-    {
-      "date": "18-12-2019",
-      "jumlahHarga": 50000,
-      "userId": 5,
-      "id": 2
-    },
-    {
-      "date": "18-12-2019",
-      "jumlahHarga": 50000,
-      "userId": 5,
-      "id": 3
-    },
-    {
-      "date": "18-12-2019",
-      "jumlahHarga": 50000,
-      "userId": 5,
-      "id": 4
-    },
-    {
-      "date": "18-12-2019",
-      "jumlahHarga": 50000,
-      "userId": 5,
-      "id": 5
-    },
-    {
-      "date": "18-12-2019",
-      "jumlahHarga": 50000,
-      "userId": 5,
-      "id": 6
-    },
-    {
-      "date": "18-12-2019",
-      "jumlahHarga": 50000,
-      "userId": 2,
-      "id": 7
-    },
-    {
-      "date": "18-12-2019",
-      "jumlahHarga": 50000,
-      "userId": 2,
-      "id": 8
-    }
-  ],
-  "transactionsDetails": [
-    {
-      "userId": 2,
-      "movieId": 7,
-      "totalHarga": 50000,
-      "jadwal": 12,
-      "bayar": true,
-      "id": 1,
-      "movie": {
-        "title": "Knives Out",
-        "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157251774892294_287x421.jpg",
-        "sinopsis": "Harlan Thrombey (Christopher Plummer) adalah penulis novel misteri yang kaya raya. Di ulang tahunnya yang ke-85 ia tewas secara misterius. Keluarga Harlan yang datang berkumpul kini menjadi tersangka. Mereka dicurigai oleh Detektif terkenal Benoit Blanc (Daniel Craig) yang datang untuk menyelidiki insiden ini. Untuk memecahkan misteri kematian Harlan, sang detektif mulai berbicara kepada seluruh anggota keluarga dan menemukan siapa dalang pembunuhan sang novelis terkenal itu.",
-        "sutradara": "Rian Johnson",
-        "genre": "Comedy, Crime, Drama",
-        "durasi": "130",
-        "produksi": "Mongrel Media",
-        "jadwal": [
-          12,
-          14,
-          18
-        ],
-        "trailer": "https://youtube.com/embed/sL-9Khv7wa4",
-        "studioId": "3",
-        "id": 7
-      },
-      "qty": [
-        {
-          "orderId": 1,
-          "seat": 9,
-          "row": 0,
-          "id": 1
-        },
-        {
-          "orderId": 1,
-          "seat": 10,
-          "row": 0,
-          "id": 2
-        }
-      ],
-      "transactionsId": 1
-    },
-    {
-      "userId": 5,
-      "movieId": 1,
-      "totalHarga": 50000,
-      "jadwal": 12,
-      "bayar": true,
-      "id": 2,
-      "movie": {
-        "title": "Jumanji 2",
-        "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157380448937451_287x421.jpg",
-        "sinopsis": "Dwayne Johnson, Karen Gillan, Jack Black dan Kevin Hart kembali ke Jumanji,keempatnya harus menyelamatkan salah satu teman mereka. Namun permainan telah berubah. Para pemain kini harus lebih berani melintasi rintangan ekstrem dan kembali dengan selamat dari permainan paling berbahaya di dunia.",
-        "sutradara": "Jake Kasdan",
-        "genre": "Action, Fantasy",
-        "durasi": "123",
-        "produksi": "Columbia Pictures",
-        "jadwal": [
-          12,
-          14,
-          16,
-          18,
-          20,
-          22
-        ],
-        "trailer": "https://www.youtube.com/embed/rBxcF-r9Ibs",
-        "studioId": "1",
-        "id": 1
-      },
-      "qty": [
-        {
-          "orderId": 2,
-          "seat": 8,
-          "row": 0,
-          "id": 3
-        },
-        {
-          "orderId": 2,
-          "seat": 9,
-          "row": 0,
-          "id": 4
-        }
-      ],
-      "transactionsId": 2
-    },
-    {
-      "userId": 5,
-      "movieId": 3,
-      "totalHarga": 50000,
-      "jadwal": 12,
-      "bayar": true,
-      "id": 3,
-      "movie": {
-        "id": 3,
-        "title": "Charlie's Angels",
-        "sutradara": "Elizabeth Banks",
-        "durasi": 120,
-        "produksi": "Columbia Pictures",
-        "sinopsis": "Versi terbaru Charlie's Angels akan membawa kita pada petualangan baru yang lebih seru dan lebih segar. Sabina Wilson (Kristen Stewart) dan rekannya, Jane Kano (Ella Balinska), diberi tugas oleh Charlie untuk melindungi Elena Houghlin (Naomi Scott), seorang insinyur muda yang merevolusi industri listrik, namun memiliki potensi untuk menjadi senjata mematikan. Charlie's Angels menjalankan misi dan mempertaruhkan nyawa mereka demi menyelamatkan dunia dan mencegah teroris menyalahgunakan teknologi alat tersebut.",
-        "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157224569350378_287x421.jpg",
-        "genre": "Action",
-        "jadwal": [
-          12,
-          18,
-          20
-        ],
-        "studioId": 1,
-        "trailer": "https://www.youtube.com/embed/RSUq4VfWfjE"
-      },
-      "qty": [
-        {
-          "orderId": 3,
-          "seat": 10,
-          "row": 3,
-          "id": 5
-        },
-        {
-          "orderId": 3,
-          "seat": 9,
-          "row": 3,
-          "id": 6
-        }
-      ],
-      "transactionsId": 3
-    },
-    {
-      "userId": 2,
-      "movieId": 2,
-      "totalHarga": 50000,
-      "jadwal": 12,
-      "bayar": true,
-      "id": 4,
-      "movie": {
-        "id": 2,
-        "title": "Star Wars: The Rise of Skywalker",
-        "sutradara": "J.J. Abrams",
-        "durasi": 140,
-        "produksi": "Walt Disney Pictures",
-        "sinopsis": "Resistance yang selamat sekali lagi akan menghadapi First Order dalam sebuah saga final yang akan menentukan nasib mereka.",
-        "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157416306567553_287x421.jpg",
-        "genre": "Action, Fantasy",
-        "jadwal": [
-          12,
-          14,
-          16
-        ],
-        "studioId": 2,
-        "trailer": "https://www.youtube.com/embed/8Qn_spdM5Zg"
-      },
-      "qty": [
-        {
-          "orderId": 4,
-          "seat": 11,
-          "row": 0,
-          "id": 7
-        },
-        {
-          "orderId": 4,
-          "seat": 10,
-          "row": 0,
-          "id": 8
-        }
-      ],
-      "transactionsId": 4
-    }
-  ]
+  "orders": [],
+  "ordersDetails": [],
+  "transactions": [],
+  "transactionsDetails": []
 }
