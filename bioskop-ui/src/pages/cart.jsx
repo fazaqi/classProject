@@ -11,8 +11,10 @@ class Cart extends Component {
   state = {
     datacart: null,
     detailseat: null,
-    totalharga: 0,
-    modalDetail: false
+    modalDetail: false,
+    totalHarga: 0,
+    sudahbayar: false,
+    tanggal: ""
   };
 
   componentDidMount() {
@@ -44,6 +46,14 @@ class Cart extends Component {
             });
             console.log(datafinal);
             this.setState({ datacart: datafinal });
+            // console.log(this.state.datacart);
+            var totHrg = 0;
+            this.state.datacart.map(val => {
+              totHrg += val.totalHarga;
+            });
+            console.log(totHrg);
+            this.setState({ totalHarga: totHrg });
+            console.log(this.state.totalHarga);
           })
           .catch(err => {
             console.log(err);
@@ -55,6 +65,7 @@ class Cart extends Component {
   }
 
   renderCart = () => {
+    // console.log("masuk rendercart");
     console.log(this.state.datacart);
     if (this.state.datacart !== null) {
       if (this.state.datacart.length === 0) {
@@ -63,6 +74,10 @@ class Cart extends Component {
             <td> Cart Empty</td>
           </tr>
         );
+      }
+      // console.log(this.state.datacart[0].bayar);
+      if (this.state.datacart[0].bayar === false) {
+        console.log("masuk nih");
       }
       return this.state.datacart.map((val, index) => {
         return (
@@ -98,7 +113,7 @@ class Cart extends Component {
         var detailfilm = res.data;
         var seat = [];
         var row = [];
-        detailfilm.map((val, index) => {
+        detailfilm.map(val => {
           seat.push(val.seat);
           row.push(val.row);
         });
@@ -119,12 +134,17 @@ class Cart extends Component {
   };
 
   btnCheckout = () => {
-    // console.log(this.state.datacart);
     var x = new Date();
-    var tanggal = x.getDate() + "-" + x.getMonth() + "-" + x.getFullYear();
+    var tanggalh =
+      x.getDate() + "-" + (x.getMonth() + 1) + "-" + x.getFullYear();
+    this.setState({ tanggal: tanggalh });
+    // console.log(this.state.datacart);
+
     // console.log(typeof tanggal);
+
     if (this.state.datacart.length) {
-      //Untuk ubah bayar jadi true
+      // console.log("masuk ubah bayar");
+      //   //Untuk ubah bayar jadi true
       Axios.get(`${APIURL}orders?userId=${this.props.UserId}`)
         .then(res => {
           var aray = [];
@@ -139,7 +159,9 @@ class Cart extends Component {
           Axios.all(aray)
             .then(res1 => {
               console.log(res1);
-              window.location.reload();
+              this.setState({ sudahbayar: true });
+              this.postTrans();
+              // window.location.reload();
             })
             .catch(err1 => {
               console.log(err1);
@@ -151,7 +173,96 @@ class Cart extends Component {
     }
   };
 
+  postTrans = () => {
+    //Untuk Post ke Table Transaction
+    if (this.state.sudahbayar === true) {
+      var date = this.state.tanggal;
+      var jumlahHarga = this.state.totalHarga;
+      var userId = this.props.UserId;
+      var datatrans = {
+        date,
+        jumlahHarga,
+        userId
+      };
+      // console.log("masuksudahbayar");
+      Axios.get(
+        `${APIURL}orders?_expand=movie&userId=${this.props.UserId}&bayar=true`
+      )
+        .then(res => {
+          var numpang = res.data;
+          console.log(res.data);
+          var arrr = [];
+          res.data.forEach((val, index) => {
+            arrr.push(Axios.post(`${APIURL}transactions`, datatrans));
+          });
+          console.log(arrr);
+          // console.log(res.data[0]);
+          //Axios All Post ke Transaction
+          Axios.all(arrr)
+            .then(res => {
+              console.log("berhasil post ke transaction");
+            })
+            .catch(err5 => {
+              console.log(err5);
+            });
+          ///////////////////////////////
+
+          //Axios All Post ke TransDetail
+          var qtytrans = [];
+          res.data.forEach(element => {
+            qtytrans.push(
+              Axios.get(`${APIURL}ordersDetails?orderId=${element.id}`)
+            );
+          });
+          console.log(qtytrans);
+          var qtytransfinal = [];
+          Axios.all(qtytrans)
+            .then(res1 => {
+              res1.forEach(val => {
+                qtytransfinal.push(val.data);
+              });
+              console.log(qtytransfinal);
+              var dataqtytrans = [];
+              numpang.forEach((val, index) => {
+                dataqtytrans.push({
+                  ...val,
+                  qty: qtytransfinal[index],
+                  transactionsId: numpang[index].id
+                });
+              });
+              console.log(dataqtytrans);
+
+              var axidetail = [];
+              dataqtytrans.forEach((val, index) => {
+                axidetail.push(
+                  Axios.post(
+                    `${APIURL}transactionsDetails`,
+                    dataqtytrans[index]
+                  )
+                );
+              });
+
+              Axios.all(axidetail)
+                .then(res => {
+                  console.log("berhasil post transdetail");
+                  this.setState({ sudahbayar: false });
+                  //masukin Action disini
+                })
+                .catch(err3 => {
+                  console.log(err3);
+                });
+            })
+            .catch(err1 => {
+              console.log(err1);
+            });
+          //////////////////////////////////////////////////////
+        })
+        .catch(err => {});
+    }
+  };
+
   render() {
+    console.log(this.state.tanggal);
     if (this.props.UserId && this.props.userRole === "user") {
       return (
         <div>
@@ -207,8 +318,19 @@ class Cart extends Component {
               </thead>
               <tbody>{this.renderCart()}</tbody>
             </Table>
-            <Button onClick={this.btnCheckout} color="green">
+            {/* <Button onClick={this.btnCheckout} color="green">
               Checkout
+            </Button> */}
+
+            <Button
+              animated="vertical"
+              color="green"
+              onClick={this.btnCheckout}
+            >
+              <Button.Content hidden>Checkout</Button.Content>
+              <Button.Content visible>
+                Total Harga = Rp {this.state.totalHarga}
+              </Button.Content>
             </Button>
           </center>
         </div>
