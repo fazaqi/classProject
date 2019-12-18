@@ -374,13 +374,13 @@ class ManageAdmin extends Component {
               placeholder="trailer"
               className="form-control mt-2"
             />
-            <select ref="editstudio" className="form-control mt-2">
+            <select
+              ref="editstudio"
+              className="form-control mt-2"
+              defaultValue={datafilm[indexedit].studioId}
+            >
               {this.state.datastudio.map(val => {
-                return (
-                  <option value={val.id} defaultValue={val.nama}>
-                    {val.nama}
-                  </option>
-                );
+                return <option value={val.id}>{val.nama}</option>;
               })}
               {/* <option value="1">Studio 1</option>
               <option value="2">Studio 2</option>

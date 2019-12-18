@@ -32,7 +32,7 @@ class App extends Component {
         this.props.LoginSuccessAction(res.data);
         // console.log("masuk app js");
         /////////////////////////////////////////
-        Axios.get(`${APIURL}orders?userId=${res.data.id}`)
+        Axios.get(`${APIURL}orders?userId=${res.data.id}&bayar=false`)
           .then(res1 => {
             // console.log(res1.data.length);
             this.props.Jumlahcart(res1.data.length);
@@ -57,7 +57,7 @@ class App extends Component {
     }
 
     if (this.props.user) {
-      Axios.get(`${APIURL}orders?userId=${this.props.user}`)
+      Axios.get(`${APIURL}orders?userId=${this.props.user}&bayar=false`)
         .then(res1 => {
           // console.log(res1.data.length);
           this.props.Jumlahcart(res1.data.length);

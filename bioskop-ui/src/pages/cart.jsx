@@ -30,16 +30,19 @@ class Cart extends Component {
             Axios.get(`${APIURL}ordersDetails?orderId=${element.id}`)
           );
         });
+        console.log(qtyarr);
         var qtyfinal = [];
         Axios.all(qtyarr)
           .then(res1 => {
             res1.forEach(val => {
               qtyfinal.push(val.data);
             });
+            console.log(qtyfinal);
             var datafinal = [];
             datacart.forEach((val, index) => {
               datafinal.push({ ...val, qty: qtyfinal[index] });
             });
+            console.log(datafinal);
             this.setState({ datacart: datafinal });
           })
           .catch(err => {
@@ -115,8 +118,40 @@ class Cart extends Component {
       });
   };
 
+  btnCheckout = () => {
+    // console.log(this.state.datacart);
+    var x = new Date();
+    var tanggal = x.getDate() + "-" + x.getMonth() + "-" + x.getFullYear();
+    // console.log(typeof tanggal);
+    if (this.state.datacart.length) {
+      //Untuk ubah bayar jadi true
+      Axios.get(`${APIURL}orders?userId=${this.props.UserId}`)
+        .then(res => {
+          var aray = [];
+          res.data.forEach((val, index) => {
+            aray.push(
+              Axios.patch(`${APIURL}orders/${val.id}`, {
+                bayar: true
+              })
+            );
+          });
+          console.log(aray);
+          Axios.all(aray)
+            .then(res1 => {
+              console.log(res1);
+              window.location.reload();
+            })
+            .catch(err1 => {
+              console.log(err1);
+            });
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
+  };
+
   render() {
-    console.log(this.state.detailseat);
     if (this.props.UserId && this.props.userRole === "user") {
       return (
         <div>
@@ -172,7 +207,9 @@ class Cart extends Component {
               </thead>
               <tbody>{this.renderCart()}</tbody>
             </Table>
-            <Button color="green">Checkout</Button>
+            <Button onClick={this.btnCheckout} color="green">
+              Checkout
+            </Button>
           </center>
         </div>
       );

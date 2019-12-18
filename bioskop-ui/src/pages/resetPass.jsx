@@ -22,9 +22,9 @@ class Resetpass extends Component {
     var newPass = this.refs.newpass.value;
     var password = this.refs.confpass.value;
     var updatePass = {
-      password,
-      username: this.props.usernamelog,
-      role: this.props.role
+      password
+      // username: this.props.usernamelog,
+      // role: this.props.role
     };
     console.log(updatePass);
     if (oldPass === "" || newPass === "" || password === "") {
@@ -52,7 +52,7 @@ class Resetpass extends Component {
         text: "New Password dan konfirmasi password harus sama"
       });
     } else {
-      Axios.put(`${APIURL}users/${this.props.userid}`, updatePass)
+      Axios.patch(`${APIURL}users/${this.props.userid}`, updatePass)
         .then(res => {
           // console.log(res.data);
           Swal.fire({

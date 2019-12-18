@@ -44,7 +44,6 @@ const btnLogout = () => {
 
 const Header = props => {
   const [isOpen, setIsOpen] = useState(false);
-
   const toggle = () => setIsOpen(!isOpen);
   return (
     <div>
@@ -100,7 +99,7 @@ const Header = props => {
                 <NavItem>
                   <NavLink href="/cart">
                     {props.cart}
-                    <Icon name="ticket" size="large" className="mr-2" />
+                    <Icon name="cart" size="large" className="mr-2" />
                   </NavLink>
                 </NavItem>
                 <UncontrolledDropdown nav inNavbar>

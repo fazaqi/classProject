@@ -16,7 +16,7 @@ class History extends Component {
       if (this.state.datahistory.length === 0) {
         return (
           <Table.Row>
-            <Table.Cell colspan="5" className="text-center">
+            <Table.Cell colSpan="8" className="text-center">
               Data History Kosong
             </Table.Cell>
           </Table.Row>
@@ -31,14 +31,17 @@ class History extends Component {
       <div>
         <center>
           <h1 className="mt-4 mb-4">Transaction History</h1>
-          <Table celled structured style={{ width: "60%" }}>
+          <Table celled structured style={{ width: "80%" }}>
             <Table.Header>
               <Table.Row>
                 <Table.HeaderCell>No</Table.HeaderCell>
                 <Table.HeaderCell>Nama Film</Table.HeaderCell>
+                <Table.HeaderCell>Studio</Table.HeaderCell>
+                <Table.HeaderCell>Jam</Table.HeaderCell>
                 <Table.HeaderCell>Tanggal</Table.HeaderCell>
                 <Table.HeaderCell>Qty</Table.HeaderCell>
-                <Table.HeaderCell>Details</Table.HeaderCell>
+                <Table.HeaderCell>Seat</Table.HeaderCell>
+                <Table.HeaderCell>Harga</Table.HeaderCell>
               </Table.Row>
             </Table.Header>
 

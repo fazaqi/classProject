@@ -4,10 +4,13 @@ import { connect } from "react-redux";
 import Notfound from "./notfound";
 import Axios from "axios";
 import { APIURL } from "../support/ApiUrl";
+import { Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
 
 class Managestudio extends Component {
   state = {
-    datastudio: []
+    datastudio: [],
+    modaledit: false,
+    indexedit: 0
   };
 
   componentDidMount() {
@@ -29,7 +32,14 @@ class Managestudio extends Component {
           <Table.Cell>{val.nama}</Table.Cell>
           <Table.Cell>{val.jumlahKursi}</Table.Cell>
           <Table.Cell>
-            <Button animated="vertical" color="teal" size="tiny">
+            <Button
+              animated="vertical"
+              color="teal"
+              size="tiny"
+              onClick={() =>
+                this.setState({ modaledit: true, indexedit: index })
+              }
+            >
               <Button.Content hidden>Edit</Button.Content>
               <Button.Content visible>
                 <Icon name="cog" />
@@ -42,9 +52,45 @@ class Managestudio extends Component {
   };
 
   render() {
+    const { datastudio, indexedit } = this.state;
+    const { length } = datastudio;
+    if (length === 0) {
+      return <div>loading</div>;
+    }
     if (this.props.Auth && this.props.AuthRole === "admin") {
       return (
         <div>
+          <Modal
+            isOpen={this.state.modaledit}
+            toggle={() => this.setState({ modaledit: false })}
+          >
+            <ModalHeader>Edit Data {datastudio[indexedit].nama}</ModalHeader>
+            <ModalBody>
+              <input
+                type="text"
+                defaultValue={this.state.datastudio[indexedit].nama}
+                ref="editnama"
+                placeholder="nama studio"
+                className="form-control mt-2"
+              />
+              <input
+                type="text"
+                defaultValue={datastudio[indexedit].jumlahKursi}
+                ref="editkursi"
+                placeholder="jumlah Seat"
+                className="form-control mt-2"
+              />
+            </ModalBody>
+            <ModalFooter>
+              <Button color="green">Save</Button>
+              <Button
+                color="yellow"
+                onClick={() => this.setState({ modaledit: false })}
+              >
+                Cancel
+              </Button>
+            </ModalFooter>
+          </Modal>
           <center>
             <h1 className="my-4">Manage Studio</h1>
 
@@ -61,6 +107,17 @@ class Managestudio extends Component {
 
               <Table.Body>{this.renderTable()}</Table.Body>
             </Table>
+            <Button
+              animated="vertical"
+              color="green"
+              size="large"
+              style={{ width: "250px" }}
+            >
+              <Button.Content hidden>Add Studio</Button.Content>
+              <Button.Content visible>
+                <Icon name="add" />
+              </Button.Content>
+            </Button>
           </center>
         </div>
       );

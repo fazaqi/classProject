@@ -6,6 +6,7 @@ import { APIURL } from "../support/ApiUrl";
 import Numeral from "numeral";
 import { Redirect } from "react-router-dom";
 import Swal from "sweetalert2";
+import { Jumlahcart } from "./../redux/actions";
 // import { Button } from "semantic-ui-react";
 
 class BeliTiket extends Component {
@@ -40,22 +41,25 @@ class BeliTiket extends Component {
     var movieId = this.props.location.state.id;
     Axios.get(`${APIURL}studios/${studioId}`)
       .then(res1 => {
+        // console.log(res1.data);
         Axios.get(`${APIURL}orders?movieId=${movieId}&jadwal=${this.state.jam}`)
           .then(res2 => {
+            // console.log(res2.data);
             var arrAxios = [];
             res2.data.forEach(val => {
               arrAxios.push(
                 Axios.get(`${APIURL}ordersDetails?orderId=${val.id}`)
               );
             });
+            // console.log(arrAxios);
             var arrAxios2 = [];
             Axios.all(arrAxios)
               .then(res3 => {
-                console.log(res3);
+                // console.log(res3);
                 res3.forEach(val => {
                   arrAxios2.push(...val.data);
                 });
-                console.log(arrAxios2);
+                // console.log(arrAxios2);
                 this.setState({
                   datamovie: this.props.location.state,
                   seats: res1.data.jumlahKursi,
@@ -109,7 +113,7 @@ class BeliTiket extends Component {
         arr[i].push(1); //angka 1 berarti seat available
       }
     }
-    console.log(this.state.booked);
+    // console.log(this.state.booked);
     for (let j = 0; j < this.state.booked.length; j++) {
       arr[this.state.booked[j].row][this.state.booked[j].seat] = 3; //angka 3 berarti seat sudah booked
     }
@@ -209,11 +213,11 @@ class BeliTiket extends Component {
       jadwal,
       bayar
     };
-    console.log(dataorders);
+    // console.log(dataorders);
     Axios.post(`${APIURL}orders`, dataorders)
       .then(res => {
         ////////////////Axios untuk get jumlah cart
-        Axios.get(`${APIURL}orders?userId=${res.data.id}`)
+        Axios.get(`${APIURL}orders?userId=${res.data.id}&bayar=false`)
           .then(res7 => {
             // console.log(res7.data.length);
             this.props.Jumlahcart(res7.data.length);
@@ -221,6 +225,7 @@ class BeliTiket extends Component {
           .catch(err => {
             console.log(err);
           });
+        console.log("ini res axpost ke orders ", res.data);
         ////////////////
         var dataOrderDetail = [];
         pilihan.forEach(val => {
@@ -230,35 +235,37 @@ class BeliTiket extends Component {
             row: val.row
           });
         });
+        console.log(dataOrderDetail);
         var dataOrderDetail2 = [];
         dataOrderDetail.forEach(val => {
           dataOrderDetail2.push(Axios.post(`${APIURL}ordersDetails`, val));
         });
+        console.log(dataOrderDetail2);
         Axios.all(dataOrderDetail2)
           .then(res1 => {
-            console.log(res1);
-            Swal.fire({
-              title: "Are you sure you want to book this ticket?",
-              icon: "question",
-              showCancelButton: true,
-              confirmButtonColor: "#3085d6",
-              cancelButtonColor: "#d33",
-              cancelButtonText: "No",
-              confirmButtonText: "Yes"
-            }).then(result => {
-              if (result.value) {
-                Swal.fire({
-                  icon: "success",
-                  title: "Tickets Booked!",
-                  showConfirmButton: false,
-                  timer: 1500,
-                  timerProgressBar: true
-                });
+            console.log(res1[0].data);
+            // Swal.fire({
+            //   title: "Are you sure you want to book this ticket?",
+            //   icon: "question",
+            //   showCancelButton: true,
+            //   confirmButtonColor: "#3085d6",
+            //   cancelButtonColor: "#d33",
+            //   cancelButtonText: "No",
+            //   confirmButtonText: "Yes"
+            // }).then(result => {
+            //   if (result.value) {
+            //     Swal.fire({
+            //       icon: "success",
+            //       title: "Tickets Booked!",
+            //       showConfirmButton: false,
+            //       timer: 1500,
+            //       timerProgressBar: true
+            //     });
 
-                this.setState({ redirecthome: true });
-                window.location.reload();
-              }
-            });
+            //   }
+            // });
+            this.setState({ redirecthome: true });
+            window.location.reload();
           })
           .catch(err => {
             console.log(err);
@@ -329,7 +336,7 @@ const MapstateToprops = state => {
   };
 };
 
-export default connect(MapstateToprops)(BeliTiket);
+export default connect(MapstateToprops, { Jumlahcart })(BeliTiket);
 
 ///belum ada proteksi ke notfound
 // belum bisa munculin yg booked
